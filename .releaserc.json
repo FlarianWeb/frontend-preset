@@ -1,41 +1,57 @@
-  {
-     "branches": ["master"],
-     "plugins": [
-       [
-         "@semantic-release/commit-analyzer",
-         {
-           "preset": "conventionalcommits",
-           "releaseRules": [
-             { "type": "fix", "release": "patch" },
-             { "type": "feat", "release": "minor" },
-             { "breaking": true, "release": "major" },
-             { "type": "chore", "release": "patch" }
-           ],
-           "parserOpts": {
-             "noteKeywords": ["BREAKING CHANGE", "BREAKING-CHANGE"]
-           }
-         }
-       ],
-       [
-         "@semantic-release/release-notes-generator",
-         {
-           "preset": "conventionalcommits"
-         }
-       ],
-       "@semantic-release/changelog",
-       [
-         "@semantic-release/npm",
-         {
-           "npmPublish": true
-         }
-       ],
-       [
-         "@semantic-release/git",
-         {
-           "assets": ["package.json", "CHANGELOG.md"],
-           "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
-         }
-       ],
-       "@semantic-release/github"
-     ]
-   }
+{
+	"branches": ["master"],
+	"repositoryUrl": "https://github.com/FlarianWeb/frontend-preset.git",
+	"plugins": [
+		[
+			"@semantic-release/commit-analyzer",
+			{
+				"preset": "conventionalcommits",
+				"releaseRules": [
+					{ "type": "fix", "release": "patch" },
+					{ "type": "feat", "release": "minor" },
+					{ "breaking": true, "release": "major" },
+					{ "type": "chore", "release": "patch" }
+				],
+				"parserOpts": {
+					"noteKeywords": ["BREAKING CHANGE", "BREAKING-CHANGE"]
+				}
+			}
+		],
+		[
+			"@semantic-release/release-notes-generator",
+			{
+				"preset": "conventionalcommits"
+			}
+		],
+		"@semantic-release/changelog",
+		[
+			"@semantic-release/npm",
+			{
+				"npmPublish": true
+			}
+		],
+		[
+			"@semantic-release/git",
+			{
+				"assets": ["package.json", "CHANGELOG.md"],
+				"message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+			}
+		],
+		[
+			"@semantic-release/exec",
+			{
+				"prepareCmd": "git checkout -b release/${nextRelease.version} && git push --set-upstream origin release/${nextRelease.version} && gh pr create --title 'chore(release): ${nextRelease.version}' --body '${nextRelease.notes}' --base master --head release/${nextRelease.version}"
+			}
+		],
+		[
+			"@semantic-release/github",
+			{
+				"assets": [
+					{ "path": "eslint/index.mjs", "label": "ESLint" },
+					{ "path": "prettier/index.mjs", "label": "Prettier" },
+					{ "path": "stylelint/index.mjs", "label": "Stylelint" }
+				]
+			}
+		]
+	]
+}
