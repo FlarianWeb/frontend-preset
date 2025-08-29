@@ -98,8 +98,8 @@
 	/* Files */
 	"files.exclude": {
 		"node-compile-cache/": true,
-		"node_modules/": true,
-		".vscode/": true
+		"node_modules/": false,
+		".vscode/": false
 	},
 
 	/* Git */
