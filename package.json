@@ -3,6 +3,10 @@
 	"version": "1.0.0",
 	"author": "FlarianWeb",
 	"license": "MIT",
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org/"
+	},
 	"description": "Frontend preset with ESLint 9 flat config, Prettier and Stylelint",
 	"keywords": [
 		"eslint",
