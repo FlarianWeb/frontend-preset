@@ -138,5 +138,9 @@
 	"vue.inlayHints.optionsWrapper": false,
 
 	/* Workbench */
-	"workbench.iconTheme": "vscode-icons"
+	"workbench.iconTheme": "vscode-icons",
+	"conventionalCommits.scopes": [
+		"Update dependencies",
+		"build"
+	]
 }
