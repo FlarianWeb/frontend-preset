@@ -141,6 +141,7 @@
 	"workbench.iconTheme": "vscode-icons",
 	"conventionalCommits.scopes": [
 		"Update dependencies",
-		"build"
+		"build",
+		"release"
 	]
 }
