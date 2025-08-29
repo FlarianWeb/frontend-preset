@@ -1,6 +1,6 @@
 {
 	"name": "@flarian/frontend-preset",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"author": "FlarianWeb",
 	"license": "MIT",
 	"description": "Frontend preset with ESLint 9 flat config, Prettier and Stylelint",
