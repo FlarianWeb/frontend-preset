@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/FlarianWeb/frontend-preset/compare/v1.0.0...v1.0.1) (2025-08-30)
+
+### Bug Fixes
+
+* **build:** :bug: add do_release to release job ([#26](https://github.com/FlarianWeb/frontend-preset/issues/26)) ([e3d57fc](https://github.com/FlarianWeb/frontend-preset/commit/e3d57fcd14d00ae42cfe3be33b834197cb9c8f57))
+* **build:** :bug: remove assets ([#24](https://github.com/FlarianWeb/frontend-preset/issues/24)) ([a04d3b5](https://github.com/FlarianWeb/frontend-preset/commit/a04d3b5befc2518c5fca6e48dddb069f1cc640e9))
+
 ## 1.0.0 (2025-08-29)
 
 ### Bug Fixes
