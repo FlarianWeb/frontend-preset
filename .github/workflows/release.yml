@@ -14,22 +14,29 @@ jobs:
         run: |
           if ! git log -1 --pretty=%B | grep -q "^chore"; then
             echo "No chore commit detected, skipping release"
-            exit 1
+            echo "DO_RELEASE=false" >> $GITHUB_ENV
+          else
+            echo "DO_RELEASE=true" >> $GITHUB_ENV
           fi
       - name: Setup Node.js
+        if: ${{ env.DO_RELEASE == 'true' }}
         uses: actions/setup-node@v4
         with:
           node-version: '22'
           registry-url: 'https://registry.npmjs.org'
       - name: Install pnpm
+        if: ${{ env.DO_RELEASE == 'true' }}
         run: npm install -g pnpm
       - name: Install dependencies
+        if: ${{ env.DO_RELEASE == 'true' }}
         run: pnpm install
       - name: Configure Git
+        if: ${{ env.DO_RELEASE == 'true' }}
         run: |
-            git config user.name "Ramil Musin"
-            git config user.email "musin@flarian.ru"
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
       - name: Release
+        if: ${{ env.DO_RELEASE == 'true' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
