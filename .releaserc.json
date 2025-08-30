@@ -38,15 +38,6 @@
         "push": false
       }
     ],
-    [
-      "@semantic-release/github",
-      {
-        "assets": [
-          { "path": "eslint/index.mjs", "label": "ESLint Config" },
-          { "path": "prettier/index.mjs", "label": "Prettier Config" },
-          { "path": "stylelint/index.mjs", "label": "Stylelint Config" }
-        ]
-      }
-    ]
+    ["@semantic-release/github"]
   ]
 }
