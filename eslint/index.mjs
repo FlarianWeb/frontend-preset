@@ -1,2 +1,3 @@
-export { default as esLintBaseRules } from './base.mjs';
-export { default as esLintImportSortRules } from './import-sort.mjs';
+export { default as baseRules } from './base.mjs';
+export { default as importSortRules } from './import-sort.mjs';
+export { default as jsxRules } from './jsx.mjs';
