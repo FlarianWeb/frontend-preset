@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/FlarianWeb/frontend-preset/compare/v1.0.1...v1.0.2) (2025-08-31)
+
+### Bug Fixes
+
+* **build:** :art: Release name ([#29](https://github.com/FlarianWeb/frontend-preset/issues/29)) ([7988986](https://github.com/FlarianWeb/frontend-preset/commit/7988986ee1dc88c38c5884e2fc13d8f94e2bf291))
+* **build:** :bug: fix releaserc ([54ad45a](https://github.com/FlarianWeb/frontend-preset/commit/54ad45ab4be5c22b64e4244a5c62df3acb45d2c1))
+
 ## [1.0.1](https://github.com/FlarianWeb/frontend-preset/compare/v1.0.0...v1.0.1) (2025-08-30)
 
 ### Bug Fixes
