@@ -1,8 +1,9 @@
 {
+
 	/* Language settings */
 	"[css]": {
 		"editor.defaultFormatter": "stylelint.vscode-stylelint",
-		"editor.formatOnSave": true,
+		"editor.formatOnSave": true
 	},
 	"[javascript]": {
 		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
@@ -11,27 +12,27 @@
 	},
 	"[json]": {
 		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
-		"editor.formatOnSave": true,
+		"editor.formatOnSave": true
 	},
 	"[jsonc]": {
 		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
-		"editor.formatOnSave": true,
+		"editor.formatOnSave": true
 	},
 	"[less]": {
 		"editor.defaultFormatter": "stylelint.vscode-stylelint",
-		"editor.formatOnSave": true,
+		"editor.formatOnSave": true
 	},
 	"[typescript]": {
 		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
-		"editor.formatOnSave": true,
+		"editor.formatOnSave": true
 	},
 	"[vue]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode",
-		"editor.formatOnSave": true,
+		"editor.formatOnSave": true
 	},
 	"[yaml]": {
 		"editor.defaultFormatter": "redhat.vscode-yaml",
-		"editor.formatOnSave": true,
+		"editor.formatOnSave": true
 	},
 
 	/* Spell */
@@ -41,6 +42,13 @@
 		"flexsearch",
 		"histoire",
 		"npmjs"
+	],
+
+	"conventionalCommits.scopes": [
+		"Update dependencies",
+		"build",
+		"release",
+		"EsLint"
 	],
 
 	/* Editor */
@@ -65,27 +73,18 @@
 		"tsconfig.json": "tsconfig.*.json"
 	},
 
-	/* Git */
-	"git.allowForcePush": true,
-	"git.autofetch": true,
-	"git.confirmSync": false,
-	"git.ignoreRebaseWarning": true,
-
-	/* JSON */
-	"json.format.enable": true,
-	"json.format.keepLines": false,
-	"json.validate.enable": false,
-
-	/* Stylelint */
-	"stylelint.packageManager": "pnpm",
-	"stylelint.validate": ["css", "less", "vue"],
-
 	/* Files */
 	"files.exclude": {
 		"node-compile-cache/": true,
 		"node_modules/": false,
 		".vscode/": false
 	},
+
+	/* Git */
+	"git.allowForcePush": true,
+	"git.autofetch": true,
+	"git.confirmSync": false,
+	"git.ignoreRebaseWarning": true,
 
 	/* GitLens */
 	"gitlens.views.scm.grouped.views": {
@@ -104,15 +103,18 @@
 	/* HTML */
 	"html.format.indentInnerHtml": true,
 
+	/* JSON */
+	"json.format.enable": true,
+	"json.format.keepLines": false,
+	"json.validate.enable": false,
+
+	/* Stylelint */
+	"stylelint.packageManager": "pnpm",
+	"stylelint.validate": ["css", "less", "vue"],
+
 	/* Vue */
 	"vue.inlayHints.optionsWrapper": false,
 
 	/* Workbench */
-	"workbench.iconTheme": "vscode-icons",
-	"conventionalCommits.scopes": [
-		"Update dependencies",
-		"build",
-		"release",
-		"EsLint"
-	]
+	"workbench.iconTheme": "vscode-icons"
 }
