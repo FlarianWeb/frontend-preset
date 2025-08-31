@@ -1,3 +1,11 @@
+## [1.1.0](https://github.com/FlarianWeb/frontend-preset/compare/v1.0.2...v1.1.0) (2025-08-31)
+
+### Features
+
+* **EsLint:** :white_check_mark: add base javascript rules and import sorting rules ([#34](https://github.com/FlarianWeb/frontend-preset/issues/34)) ([094c66d](https://github.com/FlarianWeb/frontend-preset/commit/094c66da73304992c831916d54324947de81d844))
+* **EsLint:** :white_check_mark: add json preset ([#36](https://github.com/FlarianWeb/frontend-preset/issues/36)) ([f370d18](https://github.com/FlarianWeb/frontend-preset/commit/f370d18cce497c0bee7f424a3a493f0cd13c070d))
+* **EsLint:** :white_check_mark: add stylistic rules and stylistic jsx rules ([#35](https://github.com/FlarianWeb/frontend-preset/issues/35)) ([757124c](https://github.com/FlarianWeb/frontend-preset/commit/757124ca41fe4b30e983a92728530762c2502faa))
+
 ## [1.0.2](https://github.com/FlarianWeb/frontend-preset/compare/v1.0.1...v1.0.2) (2025-08-31)
 
 ### Bug Fixes
