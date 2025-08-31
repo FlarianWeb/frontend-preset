@@ -1,12 +1,8 @@
 {
 	"name": "@flarian/frontend-preset",
 	"version": "1.0.2",
-	"author": "FlarianWeb",
 	"license": "MIT",
-	"publishConfig": {
-		"access": "public",
-		"registry": "https://registry.npmjs.org/"
-	},
+	"author": "FlarianWeb",
 	"description": "Frontend preset with ESLint 9 flat config, Prettier and Stylelint",
 	"keywords": [
 		"eslint",
@@ -17,29 +13,17 @@
 		"preset",
 		"linting"
 	],
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org/"
+	},
 	"type": "module",
 	"files": [
 		"eslint",
 		"prettier",
 		"stylelint"
 	],
-	"engines": {
-		"node": ">=22.5.0"
-	},
 	"scripts": {},
-	"peerDependencies": {
-		"@eslint/js": "9.34.0",
-		"@stylistic/eslint-plugin": "5.2.3",
-		"eslint": "9.34.0",
-		"eslint-config-prettier": "10.1.8",
-		"eslint-plugin-prettier": "5.5.4",
-		"eslint-plugin-simple-import-sort": "12.1.1",
-		"eslint-plugin-vue": "10.4.0",
-		"prettier": "^3.0.0",
-		"stylelint": "16.23.1",
-		"stylelint-config-standard": "39.0.0"
-	},
-	"packageManager": "pnpm@10.6.1",
 	"devDependencies": {
 		"@eslint/js": "9.34.0",
 		"@semantic-release/changelog": "6.0.3",
@@ -50,11 +34,29 @@
 		"conventional-changelog-conventionalcommits": "9.1.0",
 		"eslint": "9.34.0",
 		"eslint-config-prettier": "10.1.8",
+		"eslint-plugin-jsonc": "2.20.1",
 		"eslint-plugin-prettier": "5.5.4",
 		"eslint-plugin-simple-import-sort": "12.1.1",
 		"eslint-plugin-vue": "10.4.0",
 		"prettier": "3.6.2",
 		"semantic-release": "24.2.7",
+		"stylelint": "16.23.1",
+		"stylelint-config-standard": "39.0.0"
+	},
+	"engines": {
+		"node": ">=22.5.0"
+	},
+	"packageManager": "pnpm@10.6.1",
+	"peerDependencies": {
+		"@eslint/js": "9.34.0",
+		"@stylistic/eslint-plugin": "5.2.3",
+		"eslint": "9.34.0",
+		"eslint-config-prettier": "10.1.8",
+		"eslint-plugin-jsonc": "2.20.1",
+		"eslint-plugin-prettier": "5.5.4",
+		"eslint-plugin-simple-import-sort": "12.1.1",
+		"eslint-plugin-vue": "10.4.0",
+		"prettier": "^3.0.0",
 		"stylelint": "16.23.1",
 		"stylelint-config-standard": "39.0.0"
 	}
