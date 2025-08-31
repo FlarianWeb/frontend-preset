@@ -1,5 +1,2 @@
-export default [
-  {
-    extends: ['plugin:vue/recommended', 'prettier']
-  }
-];
+export { default as esLintBaseRules } from './base.mjs';
+export { default as esLintImportSortRules } from './import-sort.mjs';
