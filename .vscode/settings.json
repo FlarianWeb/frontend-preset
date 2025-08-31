@@ -1,58 +1,37 @@
 {
 	/* Language settings */
 	"[css]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.defaultFormatter": "stylelint.vscode-stylelint",
 		"editor.formatOnSave": true,
-		"editor.insertSpaces": false,
-		"editor.tabSize": 4
-	},
-	"[html]": {
-		"editor.defaultFormatter": "vscode.html-language-features",
-		"editor.formatOnSave": true,
-		"editor.insertSpaces": false,
-		"editor.suggest.insertMode": "replace",
-		"editor.tabSize": 4
 	},
 	"[javascript]": {
 		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
 		"editor.formatOnSave": true,
-		"editor.insertSpaces": false,
-		"editor.tabSize": 4
+		"editor.suggest.insertMode": "replace"
 	},
 	"[json]": {
 		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
 		"editor.formatOnSave": true,
-		"editor.insertSpaces": false,
-		"editor.tabSize": 4
 	},
 	"[jsonc]": {
 		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
 		"editor.formatOnSave": true,
-		"editor.insertSpaces": false,
-		"editor.tabSize": 4
 	},
 	"[less]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.defaultFormatter": "stylelint.vscode-stylelint",
 		"editor.formatOnSave": true,
-		"editor.insertSpaces": false,
-		"editor.tabSize": 4
 	},
 	"[typescript]": {
 		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
 		"editor.formatOnSave": true,
-		"editor.insertSpaces": false,
-		"editor.tabSize": 4
 	},
 	"[vue]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode",
 		"editor.formatOnSave": true,
-		"editor.insertSpaces": false
 	},
 	"[yaml]": {
 		"editor.defaultFormatter": "redhat.vscode-yaml",
 		"editor.formatOnSave": true,
-		"editor.insertSpaces": true,
-		"editor.tabSize": 2
 	},
 
 	/* Spell */
@@ -70,23 +49,14 @@
 		"source.fixAll.eslint": "explicit",
 		"source.fixAll.stylelint": "always"
 	},
-	"editor.detectIndentation": false,
-	"editor.fontLigatures": true,
-	"editor.fontSize": 14,
-
-	"editor.indentSize": "tabSize",
-	"editor.inlineSuggest.enabled": true,
-	"editor.suggestFontSize": 14,
-	"editor.tabSize": 4,
 
 	/* ESLint */
-	"eslint.autoFixOnSave": true,
 	"eslint.format.enable": true,
-	"eslint.validate": ["json", "jsonc", "javascript", "typescript", "vue", "yaml", "yml", "less"],
+	"eslint.validate": ["json", "jsonc", "javascript", "typescript", "vue", "yaml", "yml"],
 
 	/* Explorer */
-	"explorer.confirmDragAndDrop": false,
 	"explorer.compactFolders": false,
+	"explorer.confirmDragAndDrop": false,
 	"explorer.fileNesting.enabled": true,
 	"explorer.fileNesting.patterns": {
 		"README.md": "README.*.md",
@@ -95,18 +65,27 @@
 		"tsconfig.json": "tsconfig.*.json"
 	},
 
+	/* Git */
+	"git.allowForcePush": true,
+	"git.autofetch": true,
+	"git.confirmSync": false,
+	"git.ignoreRebaseWarning": true,
+
+	/* JSON */
+	"json.format.enable": true,
+	"json.format.keepLines": false,
+	"json.validate.enable": false,
+
+	/* Stylelint */
+	"stylelint.packageManager": "pnpm",
+	"stylelint.validate": ["css", "less", "vue"],
+
 	/* Files */
 	"files.exclude": {
 		"node-compile-cache/": true,
 		"node_modules/": false,
 		".vscode/": false
 	},
-
-	/* Git */
-	"git.allowForcePush": true,
-	"git.autofetch": true,
-	"git.confirmSync": false,
-	"git.ignoreRebaseWarning": true,
 
 	/* GitLens */
 	"gitlens.views.scm.grouped.views": {
@@ -125,15 +104,6 @@
 	/* HTML */
 	"html.format.indentInnerHtml": true,
 
-	/* JSON */
-	"json.format.enable": true,
-	"json.format.keepLines": false,
-	"json.validate.enable": false,
-
-	/* Stylelint */
-	"stylelint.packageManager": "pnpm",
-	"stylelint.validate": ["css", "less", "vue"],
-
 	/* Vue */
 	"vue.inlayHints.optionsWrapper": false,
 
@@ -142,6 +112,7 @@
 	"conventionalCommits.scopes": [
 		"Update dependencies",
 		"build",
-		"release"
+		"release",
+		"EsLint"
 	]
 }
