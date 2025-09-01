@@ -23,6 +23,11 @@
 		"prettier",
 		"stylelint"
 	],
+	"exports": {
+		"./eslint": "./eslint/index.mjs",
+		"./prettier": "./prettier/index.mjs",
+		"./stylelint": "./stylelint/index.mjs"
+	},
 	"scripts": {},
 	"devDependencies": {
 		"@eslint/js": "9.34.0",
