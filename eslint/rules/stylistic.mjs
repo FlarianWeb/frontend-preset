@@ -1,9 +1,27 @@
+import tsPlugin from 'typescript-eslint';
 import stylisticJs from '@stylistic/eslint-plugin';
 
 /** @type {import('eslint').Linter.Config} */
 export default {
-	plugins: { '@stylistic': stylisticJs },
+	files: [
+		'**/*.js',
+		'**/*.jsx',
+		'**/*.ts',
+		'**/*.tsx',
+		'**/*.vue',
+	],
+	languageOptions: {
+		parser: tsPlugin.parser,
+	},
+	plugins: {
+		'@typescript-eslint': tsPlugin.plugin,
+		'@stylistic': stylisticJs,
+	},
 	rules: {
+		'@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+		'@typescript-eslint/explicit-boundary-types': 'error',
+		'@typescript-eslint/no-shadow': 'error',
+		'@typescript-eslint/no-unused-before-defined': 'error',
 
 		/**
 		 * Принудительно вводить переносы строк после открытия и перед закрытием скобок массива
