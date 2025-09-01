@@ -1,3 +1,9 @@
+## [1.1.1](https://github.com/FlarianWeb/frontend-preset/compare/v1.1.0...v1.1.1) (2025-09-01)
+
+### Bug Fixes
+
+* **EsLint:** :bug: add module exports ([#39](https://github.com/FlarianWeb/frontend-preset/issues/39)) ([f296208](https://github.com/FlarianWeb/frontend-preset/commit/f2962083065642f1649ccad06d30e21548c212af))
+
 ## [1.1.0](https://github.com/FlarianWeb/frontend-preset/compare/v1.0.2...v1.1.0) (2025-08-31)
 
 ### Features
