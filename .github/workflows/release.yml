@@ -30,6 +30,9 @@ jobs:
       - name: Install dependencies
         if: ${{ env.DO_RELEASE == 'true' }}
         run: pnpm install
+      - name: Build
+        if: ${{ env.DO_RELEASE == 'true' }}
+        run: pnpm run build
       - name: Configure Git
         if: ${{ env.DO_RELEASE == 'true' }}
         run: |
