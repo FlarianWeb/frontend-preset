@@ -1,8 +1,8 @@
+import type { Linter } from 'eslint';
 import tsPlugin from 'typescript-eslint';
 import stylisticJs from '@stylistic/eslint-plugin';
 
-/** @type {import('eslint').Linter.Config} */
-export default {
+const config: Linter.Config = {
 	files: [
 		'**/*.js',
 		'**/*.jsx',
@@ -563,3 +563,5 @@ export default {
 		'@stylistic/wrap-regex': ['warn'],
 	},
 };
+
+export default config;
