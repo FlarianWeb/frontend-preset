@@ -18,32 +18,25 @@
 		"registry": "https://registry.npmjs.org/"
 	},
 	"type": "module",
-	"files": [ "dist" ],
-	"exports": {
-		"./eslint": {
-			"types": "./dist/eslint/index.d.ts",
-			"default": "./dist/eslint/index.js"
-		},
-		"./prettier": {
-			"types": "./dist/prettier/index.d.ts",
-			"default": "./dist/prettier/index.js"
-		},
-		"./stylelint": {
-			"types": "./dist/stylelint/index.d.ts",
-			"default": "./dist/stylelint/index.js"
-		}
-	},
+	"main": "build/index.mjs",
+	"types": "build/index.d.ts",
+	"files": [
+		"build"
+	],
 	"scripts": {
-		"build": "tsc"
+		"build": "rollup -c"
 	},
 	"devDependencies": {
 		"@eslint/js": "9.34.0",
+		"@rollup/plugin-terser": "0.4.4",
+		"@rollup/plugin-typescript": "12.1.4",
 		"@semantic-release/changelog": "6.0.3",
 		"@semantic-release/git": "10.0.1",
 		"@semantic-release/github": "11.0.5",
 		"@semantic-release/npm": "12.0.2",
 		"@stylistic/eslint-plugin": "5.2.3",
 		"@types/eslint": "9.6.1",
+		"@types/node": "24.3.0",
 		"conventional-changelog-conventionalcommits": "9.1.0",
 		"eslint": "9.34.0",
 		"eslint-config-prettier": "10.1.8",
@@ -51,10 +44,13 @@
 		"eslint-plugin-prettier": "5.5.4",
 		"eslint-plugin-simple-import-sort": "12.1.1",
 		"eslint-plugin-vue": "10.4.0",
+		"jiti": "2.5.1",
 		"prettier": "3.6.2",
+		"rollup": "4.50.0",
 		"semantic-release": "24.2.7",
 		"stylelint": "16.23.1",
 		"stylelint-config-standard": "39.0.0",
+		"tslib": "2.8.1",
 		"typescript": "5.9.2",
 		"typescript-eslint": "8.41.0"
 	},

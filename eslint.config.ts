@@ -1,10 +1,10 @@
-import { baseRules, importSortRules, jsonRules } from './eslint/index.mjs';
+
+import { baseRules, importSortRules } from './src/eslint/index';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
 	...baseRules,
 	...importSortRules,
-	...jsonRules,
 
 	{
 		ignores: [

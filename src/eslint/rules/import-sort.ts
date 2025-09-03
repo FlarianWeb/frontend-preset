@@ -1,7 +1,8 @@
+
+import type { Linter } from 'eslint';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 
-/** @type {import('eslint').Linter.Config} */
-export default {
+const config:Linter.Config = {
 	files: [
 		'**/*.js',
 		'**/*.jsx',
@@ -38,4 +39,6 @@ export default {
 			},
 		],
 	},
-};
+}
+
+export default config;
