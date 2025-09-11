@@ -10,10 +10,6 @@ export default defineBuildConfig({
 		'src/eslint/config/imports',
 		'src/eslint/config/json',
 		'src/eslint/config/jsx',
-		'src/eslint/config/ts',
-
-		/** Prettier rules */
-		'src/prettier/index',
 
 		/** Stylelint rules */
 		'src/stylelint/index',

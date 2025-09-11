@@ -2,11 +2,10 @@
 	"name": "@flarian/frontend-preset",
 	"version": "1.1.1",
 	"license": "MIT",
+	"description": "Frontend preset with ESLint 9 flat config and Stylelint",
 	"author": "FlarianWeb",
-	"description": "Frontend preset with ESLint 9 flat config, Prettier and Stylelint",
 	"keywords": [
 		"eslint",
-		"prettier",
 		"stylelint",
 		"vue",
 		"frontend",
@@ -20,29 +19,24 @@
 	"type": "module",
 	"exports": {
 		".": {
-		"types": "./dist/index.d.ts",
-		"require": "./dist/index.cjs",
-		"import": "./dist/index.mjs"
+			"types": "./dist/index.d.ts",
+			"require": "./dist/index.cjs",
+			"import": "./dist/index.mjs"
 		},
 		"./eslint": {
-		"types": "./dist/eslint/index.d.ts",
-		"require": "./dist/eslint/index.cjs",
-		"import": "./dist/eslint/index.mjs"
+			"types": "./dist/eslint/index.d.ts",
+			"require": "./dist/eslint/index.cjs",
+			"import": "./dist/eslint/index.mjs"
 		},
 		"./eslint/*": {
-		"types": "./dist/eslint/config/*.d.ts",
-		"require": "./dist/eslint/config/*.cjs",
-		"import": "./dist/eslint/config/*.mjs"
-		},
-		"./prettier": {
-		"types": "./dist/prettier/index.d.ts",
-		"require": "./dist/prettier/index.cjs",
-		"import": "./dist/prettier/index.mjs"
+			"types": "./dist/eslint/config/*.d.ts",
+			"require": "./dist/eslint/config/*.cjs",
+			"import": "./dist/eslint/config/*.mjs"
 		},
 		"./stylelint": {
-		"types": "./dist/stylelint/index.d.ts",
-		"require": "./dist/stylelint/index.cjs",
-		"import": "./dist/stylelint/index.mjs"
+			"types": "./dist/stylelint/index.d.ts",
+			"require": "./dist/stylelint/index.cjs",
+			"import": "./dist/stylelint/index.mjs"
 		}
 	},
 	"main": "./dist/index.cjs",
@@ -54,6 +48,10 @@
 	"scripts": {
 		"build": "unbuild"
 	},
+	"engines": {
+		"node": ">=22.5.0"
+	},
+	"packageManager": "pnpm@10.6.1",
 	"devDependencies": {
 		"@eslint/js": "9.35.0",
 		"@semantic-release/changelog": "6.0.3",
@@ -64,45 +62,41 @@
 		"@types/eslint": "9.6.1",
 		"conventional-changelog-conventionalcommits": "9.1.0",
 		"eslint": "9.35.0",
-		"eslint-config-prettier": "10.1.8",
 		"eslint-plugin-jsonc": "2.20.1",
-		"eslint-plugin-prettier": "5.5.4",
+		"eslint-plugin-pug": "1.2.5",
 		"eslint-plugin-simple-import-sort": "12.1.1",
 		"eslint-plugin-vue": "10.4.0",
-		"prettier": "3.6.2",
+		"globals": "16.4.0",
 		"semantic-release": "24.2.8",
 		"stylelint": "16.24.0",
 		"stylelint-config-standard": "39.0.0",
 		"typescript": "5.9.2",
 		"typescript-eslint": "8.43.0",
-		"unbuild": "3.6.1"
+		"unbuild": "3.6.1",
+		"vue-eslint-parser": "10.2.0"
 	},
-	"engines": {
-		"node": ">=22.5.0"
-	},
-	"packageManager": "pnpm@10.6.1",
 	"peerDependencies": {
 		"@eslint/js": ">=9.30.0",
 		"@stylistic/eslint-plugin": ">=5.0.0",
 		"eslint": ">=9.30.0",
-		"eslint-config-prettier": ">=10.1.0",
 		"eslint-plugin-jsonc": ">=2.20.0",
-		"eslint-plugin-prettier": ">=5.5.0",
+		"eslint-plugin-pug": "1.2.5",
 		"eslint-plugin-simple-import-sort": ">=12.1.0",
 		"eslint-plugin-vue": ">=10.0.0",
-		"prettier": ">=3.0.0",
+		"globals": ">=16.0.0",
 		"stylelint": ">=16.20.0",
 		"stylelint-config-standard": ">=39.0.0",
-		"typescript-eslint": ">=8.15.0"
+		"typescript-eslint": ">=8.15.0",
+		"vue-eslint-parser": "10.2.0"
 	},
 	"peerDependenciesMeta": {
+		"globals": {
+			"optional": true
+		},
 		"eslint-plugin-vue": {
 			"optional": true
 		},
 		"eslint-plugin-jsonc": {
-			"optional": true
-		},
-		"eslint-plugin-prettier": {
 			"optional": true
 		},
 		"eslint-plugin-simple-import-sort": {

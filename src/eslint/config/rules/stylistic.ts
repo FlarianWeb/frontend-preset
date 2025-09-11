@@ -3,8 +3,6 @@ import stylisticJs from '@stylistic/eslint-plugin';
 
 export default <Linter.Config>{
 	files: ['**/*.{js,ts,jsx,tsx,cjs,mjs,vue}'],
-	languageOptions: {
-	},
 	plugins: {
 		'@stylistic': stylisticJs,
 	},

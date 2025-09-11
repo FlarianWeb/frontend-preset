@@ -1,17 +1,9 @@
 import type { Linter } from 'eslint';
 
-import {
-	base,
-	imports,
-	json,
-	jsx
-} from './src/eslint';
+import { all } from './src/eslint';
 
 export default <Linter.Config[]>[
-	...base,
-	...imports,
-	...json,
-	...jsx,
+	...all,
 
 	{
 		ignores: [
