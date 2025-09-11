@@ -1,7 +1,8 @@
+import type { Linter } from 'eslint';
 import stylisticJs from '@stylistic/eslint-plugin';
 
-/** @type {import('eslint').Linter.Config} */
-export default {
+export default <Linter.Config> {
+	files: ['**/*.{jsx,tsx}'],
 	plugins: { '@stylistic': stylisticJs },
 	rules: {
 

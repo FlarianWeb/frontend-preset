@@ -1,5 +1,4 @@
-export { default as baseRules } from './base';
-
-// export { default as importSortRules } from './import-sort.mjs';
-// export { default as jsxRules } from './jsx.mjs';
-// export { default as jsonRules } from './json.mjs';
+export { default as base } from './config/base';
+export { default as imports } from './config/imports';
+export { default as json } from './config/json';
+export { default as jsx } from './config/jsx';

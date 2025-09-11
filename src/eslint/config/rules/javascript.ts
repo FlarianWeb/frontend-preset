@@ -1,6 +1,7 @@
 import type { Linter } from 'eslint';
 
-const config: Linter.Config = {
+export default <Linter.Config> {
+	files: ['**/*.{js,ts,jsx,tsx,cjs,mjs,vue}'],
 	rules: {
 		'arrow-body-style': ['error', 'as-needed'],
 		curly: 'error',
@@ -52,5 +53,3 @@ const config: Linter.Config = {
 		],
 	},
 };
-
-export default config;

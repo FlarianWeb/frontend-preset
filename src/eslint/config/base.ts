@@ -1,16 +1,15 @@
-import jsPlugin from '@eslint/js';
 import type { Linter } from 'eslint';
+import tsPlugin from 'typescript-eslint';
+import jsPlugin from '@eslint/js';
 
 import esLintJavaScriptRules from './rules/javascript';
 import esLintStylisticRules from './rules/stylistic';
+import esLintTypeScriptRules from './rules/typescript';
 
-const config: Linter.Config[] = [
-	{
-		files: ['**/*.{js,ts,jsx,tsx,cjs,mjs}'],
-	},
+export default <Linter.Config[]>[
 	jsPlugin.configs.recommended,
+	...tsPlugin.configs.recommended,
 	esLintJavaScriptRules,
+	esLintTypeScriptRules,
 	esLintStylisticRules,
 ];
-
-export default config;

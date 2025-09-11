@@ -1,28 +1,14 @@
 import type { Linter } from 'eslint';
-import tsPlugin from 'typescript-eslint';
 import stylisticJs from '@stylistic/eslint-plugin';
 
-const config: Linter.Config = {
-	files: [
-		'**/*.js',
-		'**/*.jsx',
-		'**/*.ts',
-		'**/*.tsx',
-		'**/*.vue',
-	],
+export default <Linter.Config>{
+	files: ['**/*.{js,ts,jsx,tsx,cjs,mjs,vue}'],
 	languageOptions: {
-		parser: tsPlugin.parser,
 	},
 	plugins: {
-		'@typescript-eslint': tsPlugin.plugin,
 		'@stylistic': stylisticJs,
 	},
 	rules: {
-		'@typescript-eslint/consistent-type-definitions': ['error', 'type'],
-		'@typescript-eslint/explicit-boundary-types': 'error',
-		'@typescript-eslint/no-shadow': 'error',
-		'@typescript-eslint/no-unused-before-defined': 'error',
-
 		/**
 		 * Принудительно вводить переносы строк после открытия и перед закрытием скобок массива
 		 * https://eslint.style/rules/default/array-bracket-newline
@@ -277,16 +263,7 @@ const config: Linter.Config = {
 		 * Запретить ненужные скобки
 		 * https://eslint.style/rules/default/no-extra-parens
 		 */
-		'@stylistic/no-extra-parens': [
-			'warn',
-			'all',
-			{
-				returnAssign: false,
-				nestedBinaryExpressions: false,
-				ternaryOperandBinaryExpressions: false,
-				enforceForArrowConditionals: false,
-			},
-		],
+		'@stylistic/no-extra-parens': ['warn'],
 
 		/**
 		 * Запретить ненужные точки с запятой
@@ -563,5 +540,3 @@ const config: Linter.Config = {
 		'@stylistic/wrap-regex': ['warn'],
 	},
 };
-
-export default config;
