@@ -1,3 +1,11 @@
+## [1.2.0](https://github.com/FlarianWeb/frontend-preset/compare/v1.1.1...v1.2.0) (2025-09-18)
+
+### Features
+
+* :lipstick: Add typescript ([#43](https://github.com/FlarianWeb/frontend-preset/issues/43)) ([024068d](https://github.com/FlarianWeb/frontend-preset/commit/024068d9d44275dad1ee330923c96989911d5d9d))
+* **build:** ⚡ Add unbuild and rework mjs to ts ([#48](https://github.com/FlarianWeb/frontend-preset/issues/48)) ([6c5f9fc](https://github.com/FlarianWeb/frontend-preset/commit/6c5f9fc49d5b4f272c6a5d57515dc747c6886d64))
+* **EsLint:** :wrench: add typescript-eslint plugin and reconfigurate rules ([#41](https://github.com/FlarianWeb/frontend-preset/issues/41)) ([dbe9c4a](https://github.com/FlarianWeb/frontend-preset/commit/dbe9c4a24d3c612024ba807e5716e21dc11b2450))
+
 ## [1.1.1](https://github.com/FlarianWeb/frontend-preset/compare/v1.1.0...v1.1.1) (2025-09-01)
 
 ### Bug Fixes
