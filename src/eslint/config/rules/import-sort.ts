@@ -1,18 +1,22 @@
+import type { Linter } from 'eslint';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 
-/** @type {import('eslint').Linter.Config} */
-export default {
-	files: [
-		'**/*.js',
-		'**/*.jsx',
-		'**/*.ts',
-		'**/*.tsx',
-		'**/*.vue',
-	],
+export default <Linter.Config>{
+	files: ['**/*.{js,ts,jsx,tsx,cjs,mjs,vue}'],
 	plugins: {
 		'@simple-import-sort': simpleImportSort,
 	},
 	rules: {
+		'sort-imports': [
+			'warn',
+			{
+				ignoreCase: false,
+				ignoreDeclarationSort: true,
+				ignoreMemberSort: false,
+				allowSeparatedGroups: false,
+			},
+		],
+
 		'@simple-import-sort/imports': [
 			'warn',
 			{

@@ -1,7 +1,7 @@
+import type { Linter } from 'eslint';
 import pluginJsonc from 'eslint-plugin-jsonc';
 
-/** @type {import('eslint').Linter.Config} */
-export default {
+export default <Linter.Config>{
 	files: ['**/tsconfig*.json'],
 	plugins: { pluginJsonc },
 	rules: {
@@ -9,14 +9,7 @@ export default {
 			'warn',
 			{
 				pathPattern: '^$',
-				order: [
-					'compilerOptions',
-					'extends',
-					'include',
-					'exclude',
-					'files',
-					'references',
-				],
+				order: ['compilerOptions', 'extends', 'include', 'exclude', 'files', 'references'],
 			},
 			{
 				pathPattern: '^compilerOptions$',

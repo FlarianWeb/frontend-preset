@@ -1,28 +1,12 @@
 import type { Linter } from 'eslint';
-import tsPlugin from 'typescript-eslint';
 import stylisticJs from '@stylistic/eslint-plugin';
 
-const config: Linter.Config = {
-	files: [
-		'**/*.js',
-		'**/*.jsx',
-		'**/*.ts',
-		'**/*.tsx',
-		'**/*.vue',
-	],
-	languageOptions: {
-		parser: tsPlugin.parser,
-	},
+export default <Linter.Config>{
+	files: ['**/*.{js,ts,jsx,tsx,cjs,mjs,vue}'],
 	plugins: {
-		'@typescript-eslint': tsPlugin.plugin,
 		'@stylistic': stylisticJs,
 	},
 	rules: {
-		'@typescript-eslint/consistent-type-definitions': ['error', 'type'],
-		'@typescript-eslint/explicit-boundary-types': 'error',
-		'@typescript-eslint/no-shadow': 'error',
-		'@typescript-eslint/no-unused-before-defined': 'error',
-
 		/**
 		 * Принудительно вводить переносы строк после открытия и перед закрытием скобок массива
 		 * https://eslint.style/rules/default/array-bracket-newline
@@ -277,16 +261,7 @@ const config: Linter.Config = {
 		 * Запретить ненужные скобки
 		 * https://eslint.style/rules/default/no-extra-parens
 		 */
-		'@stylistic/no-extra-parens': [
-			'warn',
-			'all',
-			{
-				returnAssign: false,
-				nestedBinaryExpressions: false,
-				ternaryOperandBinaryExpressions: false,
-				enforceForArrowConditionals: false,
-			},
-		],
+		'@stylistic/no-extra-parens': ['warn'],
 
 		/**
 		 * Запретить ненужные точки с запятой
@@ -355,8 +330,16 @@ const config: Linter.Config = {
 		'@stylistic/object-curly-newline': [
 			'warn',
 			{
-				ObjectExpression: { multiline: true, minProperties: 4, consistent: true },
-				ObjectPattern: { multiline: true, minProperties: 4, consistent: true },
+				ObjectExpression: {
+					multiline: true,
+					minProperties: 4,
+					consistent: true,
+				},
+				ObjectPattern: {
+					multiline: true,
+					minProperties: 4,
+					consistent: true,
+				},
 				ImportDeclaration: { multiline: true, minProperties: 4 },
 				ExportDeclaration: { multiline: true, minProperties: 4 },
 			},
@@ -399,7 +382,11 @@ const config: Linter.Config = {
 		'@stylistic/padding-line-between-statements': [
 			'warn',
 			{ blankLine: 'always', prev: '*', next: ['*'] },
-			{ blankLine: 'any', prev: ['const', 'let', 'var'], next: ['const', 'let', 'var'] },
+			{
+				blankLine: 'any',
+				prev: ['const', 'let', 'var'],
+				next: ['const', 'let', 'var'],
+			},
 			{ blankLine: 'any', prev: ['block'], next: ['block'] },
 			{ blankLine: 'any', prev: ['block-like'], next: ['block-like'] },
 			{ blankLine: 'any', prev: ['cjs-export'], next: ['cjs-export'] },
@@ -418,21 +405,37 @@ const config: Linter.Config = {
 			{ blankLine: 'any', prev: ['if'], next: ['if'] },
 			{ blankLine: 'any', prev: ['iife'], next: ['iife'] },
 			{ blankLine: 'any', prev: ['import'], next: ['import'] },
-			{ blankLine: 'any', prev: ['multiline-block-like'], next: ['multiline-block-like'] },
+			{
+				blankLine: 'any',
+				prev: ['multiline-block-like'],
+				next: ['multiline-block-like'],
+			},
 			{
 				blankLine: 'any',
 				prev: ['multiline-const', 'multiline-let', 'multiline-var'],
 				next: ['multiline-const', 'multiline-let', 'multiline-var'],
 			},
-			{ blankLine: 'any', prev: ['multiline-export'], next: ['multiline-export'] },
-			{ blankLine: 'any', prev: ['multiline-expression'], next: ['multiline-expression'] },
+			{
+				blankLine: 'any',
+				prev: ['multiline-export'],
+				next: ['multiline-export'],
+			},
+			{
+				blankLine: 'any',
+				prev: ['multiline-expression'],
+				next: ['multiline-expression'],
+			},
 			{ blankLine: 'any', prev: ['return'], next: ['return'] },
 			{
 				blankLine: 'any',
 				prev: ['singleline-const', 'singleline-let', 'singleline-var'],
 				next: ['singleline-const', 'singleline-let', 'singleline-var'],
 			},
-			{ blankLine: 'any', prev: ['singleline-export'], next: ['singleline-export'] },
+			{
+				blankLine: 'any',
+				prev: ['singleline-export'],
+				next: ['singleline-export'],
+			},
 			{ blankLine: 'any', prev: ['switch'], next: ['switch'] },
 			{ blankLine: 'any', prev: ['throw'], next: ['throw'] },
 			{ blankLine: 'any', prev: ['try'], next: ['try'] },
@@ -563,5 +566,3 @@ const config: Linter.Config = {
 		'@stylistic/wrap-regex': ['warn'],
 	},
 };
-
-export default config;

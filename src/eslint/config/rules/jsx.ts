@@ -1,10 +1,10 @@
+import type { Linter } from 'eslint';
 import stylisticJs from '@stylistic/eslint-plugin';
 
-/** @type {import('eslint').Linter.Config} */
-export default {
+export default <Linter.Config>{
+	files: ['**/*.{jsx,tsx}'],
 	plugins: { '@stylistic': stylisticJs },
 	rules: {
-
 		/**
 		 * Принудительное или запретительное использование пробелов внутри фигурных скобок в атрибутах и выражениях JSX
 		 * https://eslint.style/rules/default/jsx-child-element-spacing
@@ -39,7 +39,14 @@ export default {
 		 * Принудительное или запретительное использование пробелов внутри фигурных скобок в атрибутах и выражениях JSX
 		 * https://eslint.style/rules/default/jsx-curly-spacing
 		 */
-		'@stylistic/jsx-curly-spacing': ['warn', { when: 'always', attributes: { allowMultiline: false }, children: true }],
+		'@stylistic/jsx-curly-spacing': [
+			'warn',
+			{
+				when: 'always',
+				attributes: { allowMultiline: false },
+				children: true,
+			},
+		],
 
 		/**
 		 * Принудительное или запретительное использование пробелов вокруг знаков равенства в атрибутах JSX

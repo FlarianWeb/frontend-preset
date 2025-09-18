@@ -1,6 +1,7 @@
 import type { Linter } from 'eslint';
 
-const config: Linter.Config = {
+export default <Linter.Config>{
+	files: ['**/*.{js,ts,jsx,tsx,cjs,mjs,vue}'],
 	rules: {
 		'arrow-body-style': ['error', 'as-needed'],
 		curly: 'error',
@@ -33,7 +34,8 @@ const config: Linter.Config = {
 			'error',
 			{
 				selector: 'ForInStatement',
-				message: 'for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.',
+				message:
+					'for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.',
 			},
 			{
 				selector: 'LabeledStatement',
@@ -52,5 +54,3 @@ const config: Linter.Config = {
 		],
 	},
 };
-
-export default config;

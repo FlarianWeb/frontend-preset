@@ -14,7 +14,7 @@ trim_trailing_whitespace = true
 trim_trailing_whitespace = false
 
 # Блок настроек для файлов JavaScript и TypeScript
-[*.{js,ts,jsx,tsx,cjs,mjs}]
+[*.{js,ts,jsx,tsx,cjs,mjs,vue}]
 indent_style = tab
 indent_size = 4
 

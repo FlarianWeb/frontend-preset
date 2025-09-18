@@ -1,7 +1,7 @@
+import type { Linter } from 'eslint';
 import pluginJsonc from 'eslint-plugin-jsonc';
 
-/** @type {import('eslint').Linter.Config} */
-export default {
+export default <Linter.Config>{
 	files: ['**/package.json'],
 	plugins: { pluginJsonc },
 	rules: {
@@ -37,14 +37,7 @@ export default {
 			},
 			{
 				pathPattern: '^scripts$',
-				order: [
-					'build',
-					'test',
-					'lint',
-					'start',
-					'prebuild',
-					'pretest',
-				],
+				order: ['build', 'test', 'lint', 'start', 'prebuild', 'pretest'],
 			},
 		],
 	},
