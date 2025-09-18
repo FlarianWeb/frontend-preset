@@ -1,6 +1,6 @@
 {
 	"name": "@flarian/frontend-preset",
-	"version": "1.2.0",
+	"version": "1.1.1",
 	"license": "MIT",
 	"description": "Frontend preset with ESLint 9 flat config and Stylelint",
 	"author": "FlarianWeb",
@@ -104,46 +104,5 @@
 		"stylelint-config-standard": ">=39.0.0",
 		"typescript-eslint": ">=8.15.0",
 		"vue-eslint-parser": ">=10.0.0"
-	},
-	"peerDependenciesMeta": {
-		"@eslint/js": {
-			"optional": true
-		},
-		"@prettier/plugin-pug": {
-			"optional": true
-		},
-		"@stylistic/eslint-plugin": {
-			"optional": true
-		},
-		"@typescript-eslint/utils": {
-			"optional": true
-		},
-		"eslint-config-prettier": {
-			"optional": true
-		},
-		"eslint-plugin-jsonc": {
-			"optional": true
-		},
-		"eslint-plugin-prettier": {
-			"optional": true
-		},
-		"eslint-plugin-simple-import-sort": {
-			"optional": true
-		},
-		"eslint-plugin-vue": {
-			"optional": true
-		},
-		"globals": {
-			"optional": true
-		},
-		"stylelint-config-standard": {
-			"optional": true
-		},
-		"typescript-eslint": {
-			"optional": true
-		},
-		"vue-eslint-parser": {
-			"optional": true
-		}
 	}
 }
