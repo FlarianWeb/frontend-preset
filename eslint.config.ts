@@ -6,10 +6,6 @@ export default <Linter.Config[]>[
 	...all,
 
 	{
-		ignores: [
-			'dist/**',
-			'node_modules/**',
-			'pnpm-lock.yaml',
-		],
+		ignores: ['dist/**', 'node_modules/**', 'pnpm-lock.yaml'],
 	},
 ];

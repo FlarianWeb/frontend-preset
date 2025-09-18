@@ -32,7 +32,7 @@ jobs:
         run: pnpm install
       - name: Build
         if: ${{ env.DO_RELEASE == 'true' }}
-        run: pnpm run build
+        run: pnpm run build || exit 1
       - name: Configure Git
         if: ${{ env.DO_RELEASE == 'true' }}
         run: |

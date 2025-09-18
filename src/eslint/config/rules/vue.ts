@@ -1,8 +1,12 @@
 import type { Linter } from 'eslint';
 import pluginVue from 'eslint-plugin-vue';
+import parserVue from 'vue-eslint-parser';
 
-export default <Linter.Config> {
+export default <Linter.Config>{
 	files: ['**/*.vue'],
+	languageOptions: {
+		parser: parserVue,
+	},
 	plugins: {
 		vue: pluginVue,
 	},
@@ -27,6 +31,28 @@ export default <Linter.Config> {
 				multiline: {
 					max: 1,
 				},
+			},
+		],
+
+		'vue/attributes-order': [
+			'error',
+			{
+				order: [
+					'DEFINITION',
+					'LIST_RENDERING',
+					'CONDITIONALS',
+					'RENDER_MODIFIERS',
+					'GLOBAL',
+					'UNIQUE',
+					'SLOT',
+					'TWO_WAY_BINDING',
+					'OTHER_DIRECTIVES',
+					'ATTR_DYNAMIC',
+					'ATTR_STATIC',
+					'EVENTS',
+					'CONTENT',
+				],
+				alphabetical: true,
 			},
 		],
 

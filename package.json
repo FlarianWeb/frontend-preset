@@ -33,6 +33,16 @@
 			"require": "./dist/eslint/config/*.cjs",
 			"import": "./dist/eslint/config/*.mjs"
 		},
+		"./prettier": {
+			"types": "./dist/prettier/index.d.ts",
+			"require": "./dist/prettier/index.cjs",
+			"import": "./dist/prettier/index.mjs"
+		},
+		"./prettier/*": {
+			"types": "./dist/prettier/config/*.d.ts",
+			"require": "./dist/prettier/config/*.cjs",
+			"import": "./dist/prettier/config/*.mjs"
+		},
 		"./stylelint": {
 			"types": "./dist/stylelint/index.d.ts",
 			"require": "./dist/stylelint/index.cjs",
@@ -54,6 +64,7 @@
 	"packageManager": "pnpm@10.6.1",
 	"devDependencies": {
 		"@eslint/js": "9.35.0",
+		"@prettier/plugin-pug": "3.4.2",
 		"@semantic-release/changelog": "6.0.3",
 		"@semantic-release/git": "10.0.1",
 		"@semantic-release/github": "11.0.5",
@@ -62,11 +73,13 @@
 		"@types/eslint": "9.6.1",
 		"conventional-changelog-conventionalcommits": "9.1.0",
 		"eslint": "9.35.0",
+		"eslint-config-prettier": "10.1.8",
 		"eslint-plugin-jsonc": "2.20.1",
-		"eslint-plugin-pug": "1.2.5",
+		"eslint-plugin-prettier": "5.5.4",
 		"eslint-plugin-simple-import-sort": "12.1.1",
 		"eslint-plugin-vue": "10.4.0",
 		"globals": "16.4.0",
+		"prettier": "3.6.2",
 		"semantic-release": "24.2.8",
 		"stylelint": "16.24.0",
 		"stylelint-config-standard": "39.0.0",
@@ -77,38 +90,59 @@
 	},
 	"peerDependencies": {
 		"@eslint/js": ">=9.30.0",
+		"@prettier/plugin-pug": ">=3.3.0",
 		"@stylistic/eslint-plugin": ">=5.0.0",
 		"eslint": ">=9.30.0",
+		"eslint-config-prettier": ">=10.1.0",
 		"eslint-plugin-jsonc": ">=2.20.0",
-		"eslint-plugin-pug": "1.2.5",
+		"eslint-plugin-prettier": ">=5.4.0",
 		"eslint-plugin-simple-import-sort": ">=12.1.0",
 		"eslint-plugin-vue": ">=10.0.0",
 		"globals": ">=16.0.0",
+		"prettier": ">=3.5.0",
 		"stylelint": ">=16.20.0",
 		"stylelint-config-standard": ">=39.0.0",
 		"typescript-eslint": ">=8.15.0",
-		"vue-eslint-parser": "10.2.0"
+		"vue-eslint-parser": ">=10.0.0"
 	},
 	"peerDependenciesMeta": {
-		"globals": {
+		"@eslint/js": {
 			"optional": true
 		},
-		"eslint-plugin-vue": {
+		"@prettier/plugin-pug": {
+			"optional": true
+		},
+		"@stylistic/eslint-plugin": {
+			"optional": true
+		},
+		"@typescript-eslint/utils": {
+			"optional": true
+		},
+		"eslint-config-prettier": {
 			"optional": true
 		},
 		"eslint-plugin-jsonc": {
 			"optional": true
 		},
+		"eslint-plugin-prettier": {
+			"optional": true
+		},
 		"eslint-plugin-simple-import-sort": {
+			"optional": true
+		},
+		"eslint-plugin-vue": {
+			"optional": true
+		},
+		"globals": {
+			"optional": true
+		},
+		"stylelint-config-standard": {
 			"optional": true
 		},
 		"typescript-eslint": {
 			"optional": true
 		},
-		"stylelint": {
-			"optional": true
-		},
-		"stylelint-config-standard": {
+		"vue-eslint-parser": {
 			"optional": true
 		}
 	}

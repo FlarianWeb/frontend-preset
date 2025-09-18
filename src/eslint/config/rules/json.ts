@@ -1,7 +1,7 @@
 import type { Linter } from 'eslint';
 import pluginJsonc from 'eslint-plugin-jsonc';
 
-export default <Linter.Config> {
+export default <Linter.Config>{
 	files: ['**/*.json'],
 	plugins: { pluginJsonc },
 	rules: {

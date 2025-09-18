@@ -1,7 +1,7 @@
 import type { Linter } from 'eslint';
 import tsPlugin from 'typescript-eslint';
 
-export default <Linter.Config> {
+export default <Linter.Config>{
 	files: ['**/*.{ts,tsx,vue}'],
 	languageOptions: {
 		parser: tsPlugin.parser,
