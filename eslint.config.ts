@@ -3,7 +3,7 @@ import type { Linter } from 'eslint';
 import { all } from './src/eslint';
 
 export default <Linter.Config[]>[
-	...all,
+	...all.withApp,
 
 	{
 		ignores: ['dist/**', 'node_modules/**', 'pnpm-lock.yaml'],
