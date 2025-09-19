@@ -11,6 +11,8 @@ export default defineBuildConfig({
 		'src/eslint/config/imports',
 		'src/eslint/config/json',
 		'src/eslint/config/jsx',
+		'src/eslint/config/prettier',
+		'src/eslint/config/react',
 		'src/eslint/config/vue',
 
 		/** Prettier rules */
@@ -23,6 +25,9 @@ export default defineBuildConfig({
 
 		/** Stylelint rules */
 		'src/stylelint/index',
+		'src/stylelint/config/all',
+		'src/stylelint/config/less',
+		'src/stylelint/config/scss',
 	],
 	declaration: true,
 	rollup: {

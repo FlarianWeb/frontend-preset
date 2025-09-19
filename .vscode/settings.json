@@ -37,7 +37,7 @@
 	/* Spell */
 	"cSpell.words": ["conventionalcommits", "flarian", "flexsearch", "histoire", "npmjs"],
 
-	"conventionalCommits.scopes": ["Update dependencies", "build", "release", "EsLint", "Prettier"],
+	"conventionalCommits.scopes": ["Update dependencies", "build", "release", "EsLint", "Prettier", "Stylelint"],
 
 	/* Editor */
 	"editor.accessibilitySupport": "off",
@@ -98,7 +98,7 @@
 
 	/* Stylelint */
 	"stylelint.packageManager": "pnpm",
-	"stylelint.validate": ["css", "less", "vue"],
+	"stylelint.validate": ["css", "less", "postcss", "scss", "vue", "sass"],
 
 	/* Vue */
 	"vue.inlayHints.optionsWrapper": false,
