@@ -37,7 +37,7 @@
 	/* Spell */
 	"cSpell.words": ["conventionalcommits", "flarian", "flexsearch", "histoire", "npmjs"],
 
-	"conventionalCommits.scopes": ["Update dependencies", "build", "release", "EsLint"],
+	"conventionalCommits.scopes": ["Update dependencies", "build", "release", "EsLint", "Prettier"],
 
 	/* Editor */
 	"editor.accessibilitySupport": "off",
