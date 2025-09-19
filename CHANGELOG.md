@@ -1,3 +1,18 @@
+## [1.3.0](https://github.com/FlarianWeb/frontend-preset/compare/v1.2.1...v1.3.0) (2025-09-19)
+
+### Features
+
+* **Stylelint:** :tada: Add stylelint config and update readme ([#52](https://github.com/FlarianWeb/frontend-preset/issues/52)) ([9a7cd20](https://github.com/FlarianWeb/frontend-preset/commit/9a7cd20c9814ee9f5c221305d49095dd8d364211))
+
+### Bug Fixes
+
+* **EsLint:** :white_check_mark: Add vue, react and prettier configuration ([#50](https://github.com/FlarianWeb/frontend-preset/issues/50)) ([85d00f6](https://github.com/FlarianWeb/frontend-preset/commit/85d00f635e8019e3536c9d45ffa2b55665322df0))
+* **Prettier:** :recycle: Remove prettierrc ([79d5166](https://github.com/FlarianWeb/frontend-preset/commit/79d5166c6b9b8b305c23a474a5614a7d1fafef15))
+
+### Performance Improvements
+
+* **release:** :rocket: release ([1ac21f3](https://github.com/FlarianWeb/frontend-preset/commit/1ac21f390b7433cbd454131fac6cf1501bc5a102))
+
 ## [1.2.1](https://github.com/FlarianWeb/frontend-preset/compare/v1.2.0...v1.2.1) (2025-09-18)
 
 ## [1.2.0](https://github.com/FlarianWeb/frontend-preset/compare/v1.1.1...v1.2.0) (2025-09-18)
