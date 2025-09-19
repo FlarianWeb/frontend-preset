@@ -2,4 +2,6 @@ import type { Linter } from 'eslint';
 
 import esLintStylisticJsxRules from './rules/jsx';
 
-export default <Linter.Config[]>[esLintStylisticJsxRules];
+const jsxConfig: Linter.Config[] = [esLintStylisticJsxRules];
+
+export default jsxConfig;
