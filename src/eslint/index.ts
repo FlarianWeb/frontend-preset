@@ -1,8 +1,8 @@
-export { default as all } from './config/all';
-export { default as base } from './config/base';
-export { default as imports } from './config/imports';
-export { default as json } from './config/json';
-export { default as jsx } from './config/jsx';
-export { default as prettier } from './config/prettier';
-export { default as react } from './config/react';
-export { default as vue } from './config/vue';
+export { all } from './config/all';
+export { baseConfig } from './config/base';
+export { importsConfig } from './config/imports';
+export { jsonConfig } from './config/json';
+export { jsxConfig } from './config/jsx';
+export { prettierConfig } from './config/prettier';
+export { reactConfig } from './config/react';
+export { vueConfig } from './config/vue';

@@ -7,7 +7,7 @@ import esLintJavaScriptRules from './rules/javascript';
 import esLintStylisticRules from './rules/stylistic';
 import esLintTypeScriptRules from './rules/typescript';
 
-const baseConfig: Linter.Config[] = [
+export const baseConfig: Linter.Config[] = [
 	{
 		languageOptions: {
 			globals: { ...globals.browser, ...globals.node },
@@ -20,5 +20,3 @@ const baseConfig: Linter.Config[] = [
 	esLintTypeScriptRules,
 	esLintStylisticRules,
 ];
-
-export default baseConfig;

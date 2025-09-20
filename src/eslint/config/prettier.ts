@@ -3,7 +3,7 @@ import type { Linter } from 'eslint';
 import pluginPrettier from 'eslint-config-prettier';
 import prettier from 'eslint-plugin-prettier';
 
-const prettierConfig: Linter.Config[] = [
+export const prettierConfig: Linter.Config[] = [
 	{
 		plugins: { prettier },
 		rules: {
@@ -12,5 +12,3 @@ const prettierConfig: Linter.Config[] = [
 		},
 	},
 ];
-
-export default prettierConfig;
