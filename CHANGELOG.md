@@ -1,3 +1,12 @@
+## [1.3.1](https://github.com/FlarianWeb/frontend-preset/compare/v1.3.0...v1.3.1) (2025-09-20)
+
+### Bug Fixes
+
+* **EsLint:** :white_check_mark: Add no-undefined var and off multi-word-component-names ([#54](https://github.com/FlarianWeb/frontend-preset/issues/54)) ([426da18](https://github.com/FlarianWeb/frontend-preset/commit/426da18606f48b7cdbba3f950fe4a82028be9c91))
+* **EsLint:** :white_check_mark: Rework eslint exports to named ([#56](https://github.com/FlarianWeb/frontend-preset/issues/56)) ([6449aed](https://github.com/FlarianWeb/frontend-preset/commit/6449aedc5374eef41f1d6b385a5a9aa255635c49))
+* **Prettier:** :white_check_mark: Add prettier named exports ([#58](https://github.com/FlarianWeb/frontend-preset/issues/58)) ([0674b52](https://github.com/FlarianWeb/frontend-preset/commit/0674b527b729ab67a15191aa42c24542dd76df91))
+* **Stylelint:** :white_check_mark: Add stylelint named exports ([#60](https://github.com/FlarianWeb/frontend-preset/issues/60)) ([c25d647](https://github.com/FlarianWeb/frontend-preset/commit/c25d6476d9bd9f4b2de69bd5c63bee1917c6ccea))
+
 ## [1.3.0](https://github.com/FlarianWeb/frontend-preset/compare/v1.2.1...v1.3.0) (2025-09-19)
 
 ### Features
