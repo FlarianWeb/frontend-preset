@@ -11,6 +11,8 @@ export default <Linter.Config>{
 		vue: pluginVue,
 	},
 	rules: {
+		'vue/multi-word-component-names': 'off',
+		'vue/script-setup-uses-vars': 'error',
 		'vue/html-indent': [
 			'warn',
 			'tab',

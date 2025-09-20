@@ -10,7 +10,15 @@ export default <Linter.Config>{
 		'@typescript-eslint': tsPlugin.plugin,
 	},
 	rules: {
+		'no-unused-vars': 'off',
 		'@typescript-eslint/consistent-type-definitions': ['error', 'type'],
 		'@typescript-eslint/no-shadow': 'error',
+		'@typescript-eslint/no-unused-vars': [
+			'error',
+			{
+				argsIgnorePattern: '^_',
+				varsIgnorePattern: '^_',
+			},
+		],
 	},
 };
