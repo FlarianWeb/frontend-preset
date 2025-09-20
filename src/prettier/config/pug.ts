@@ -3,7 +3,7 @@
 
 import type { Options } from 'prettier';
 
-const pugConfig: Options = {
+export const pugConfig: Options = {
 	plugins: ['@prettier/plugin-pug'],
 
 	pugFramework: 'vue',
@@ -44,5 +44,3 @@ const pugConfig: Options = {
 	],
 	pugSortAttributesEnd: ['^:', '^@'],
 };
-
-export default pugConfig;

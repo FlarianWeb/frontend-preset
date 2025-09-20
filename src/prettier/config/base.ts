@@ -1,6 +1,6 @@
 import type { Options } from 'prettier';
 
-const baseConfig: Options = {
+export const baseConfig: Options = {
 	printWidth: 140,
 	tabWidth: 4,
 	useTabs: true,
@@ -13,5 +13,3 @@ const baseConfig: Options = {
 	arrowParens: 'avoid',
 	endOfLine: 'lf',
 };
-
-export default baseConfig;
