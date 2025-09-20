@@ -52,7 +52,7 @@ export default all;
 import { all } from '@flarian/frontend-preset/stylelint';
 
 export default {
-	extends: [all.lessConfig, all.scssConfig],
+	extends: [all.less, all.scss],
 };
 ```
 
