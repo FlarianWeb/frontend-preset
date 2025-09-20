@@ -1,5 +1,5 @@
-export { default as all } from './config/all';
-export { default as base } from './config/base';
-export { default as pug } from './config/pug';
-export { default as vue } from './config/vue';
-export { default as yml } from './config/yml';
+export { allConfig } from './config/all';
+export { baseConfig } from './config/base';
+export { pugConfig } from './config/pug';
+export { vueConfig } from './config/vue';
+export { ymlConfig } from './config/yml';

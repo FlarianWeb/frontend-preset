@@ -1,15 +1,11 @@
-import type { Options } from 'prettier';
+import { baseConfig } from './base';
+import { pugConfig } from './pug';
+import { vueConfig } from './vue';
+import { ymlConfig } from './yml';
 
-import base from './base';
-import pug from './pug';
-import vue from './vue';
-import yml from './yml';
-
-const allConfig: Options = {
-	...base,
-	...pug,
-	...vue,
-	...yml,
+export const allConfig = {
+	...baseConfig,
+	...pugConfig,
+	...vueConfig,
+	...ymlConfig,
 };
-
-export default allConfig;

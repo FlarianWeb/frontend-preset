@@ -1,6 +1,6 @@
 import type { Options } from 'prettier';
 
-const ymlConfig: Options = {
+export const ymlConfig: Options = {
 	overrides: [
 		{
 			files: '**/*.{yaml,yml}',
@@ -11,5 +11,3 @@ const ymlConfig: Options = {
 		},
 	],
 };
-
-export default ymlConfig;
