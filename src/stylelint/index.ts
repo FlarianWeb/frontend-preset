@@ -1,3 +1,3 @@
-export { default as all } from './config/all';
-export { default as less } from './config/less';
-export { default as scss } from './config/scss';
+export { all } from './config/all';
+export { lessConfig } from './config/less';
+export { scssConfig } from './config/scss';
