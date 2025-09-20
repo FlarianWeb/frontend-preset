@@ -63,7 +63,8 @@
 	"scripts": {
 		"build": "unbuild",
 		"lint": "eslint",
-		"typecheck": "tsc --noEmit"
+		"typecheck": "tsc --noEmit",
+		"pack:local": "pnpm build && pnpm pack"
 	},
 	"engines": {
 		"node": ">=22.5.0"

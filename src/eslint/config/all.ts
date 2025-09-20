@@ -1,16 +1,14 @@
-import type { Linter } from 'eslint';
+import { baseConfig } from './base';
+import { importsConfig } from './imports';
+import { jsonConfig } from './json';
+import { jsxConfig } from './jsx';
+import { prettierConfig } from './prettier';
+import { reactConfig } from './react';
+import { vueConfig } from './vue';
 
-import base from './base';
-import imports from './imports';
-import json from './json';
-import jsx from './jsx';
-import prettier from './prettier';
-import react from './react';
-import vue from './vue';
+const withNode = [...baseConfig, ...importsConfig, ...jsonConfig, ...prettierConfig];
+const withApp = [...withNode, ...jsxConfig];
+const withReact = [...withApp, ...reactConfig];
+const withVue = [...withApp, ...vueConfig];
 
-const withNode: Linter.Config[] = [...base, ...imports, ...json, ...prettier];
-const withApp: Linter.Config[] = [...withNode, ...jsx];
-const withReact: Linter.Config[] = [...withApp, ...react];
-const withVue: Linter.Config[] = [...withApp, ...vue];
-
-export default { withNode, withApp, withReact, withVue };
+export const all = { withNode, withApp, withReact, withVue };

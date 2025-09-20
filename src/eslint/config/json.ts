@@ -5,7 +5,7 @@ import esLintJsonRules from './rules/json';
 import esLintJsonPackageRules from './rules/json.package';
 import esLintJsonTsconfigRules from './rules/json.tsconfig';
 
-const jsonConfig: Linter.Config[] = [
+export const jsonConfig: Linter.Config[] = [
 	...pluginJsonc.configs['flat/base'],
 	...pluginJsonc.configs['flat/recommended-with-json'],
 	...pluginJsonc.configs['flat/recommended-with-json5'],
@@ -15,5 +15,3 @@ const jsonConfig: Linter.Config[] = [
 	esLintJsonPackageRules,
 	esLintJsonTsconfigRules,
 ];
-
-export default jsonConfig;
