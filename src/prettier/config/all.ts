@@ -3,7 +3,7 @@ import { pugConfig } from './pug';
 import { vueConfig } from './vue';
 import { ymlConfig } from './yml';
 
-export const allConfig = {
+export const all = {
 	...baseConfig,
 	...pugConfig,
 	...vueConfig,

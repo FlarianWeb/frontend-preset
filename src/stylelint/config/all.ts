@@ -1,4 +1,4 @@
-import { default as lessConfig } from './less';
-import { default as scssConfig } from './scss';
+import { lessConfig } from './less';
+import { scssConfig } from './scss';
 
-export default { lessConfig, scssConfig };
+export const all = { less: lessConfig, scss: scssConfig };

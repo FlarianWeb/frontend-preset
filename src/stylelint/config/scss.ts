@@ -2,7 +2,7 @@ import baseRules from './rules/base';
 import orderRules from './rules/order';
 import orderGroupsRules from './rules/order-groups';
 
-const scssConfig = {
+export const scssConfig = {
 	plugins: ['stylelint-order', 'stylelint-scss'],
 	extends: ['stylelint-config-standard', 'stylelint-config-standard-scss', 'stylelint-config-recommended-vue'],
 	rules: {
@@ -11,5 +11,3 @@ const scssConfig = {
 		...orderGroupsRules,
 	},
 };
-
-export default scssConfig;
