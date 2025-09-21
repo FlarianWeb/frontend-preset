@@ -17,7 +17,7 @@ const baseRules = {
 	],
 	'color-hex-length': ['long', { message: 'Запрещаем использование кородких hex цветов' }],
 	'color-named': ['never', { message: 'Запрещаем использование именованных цветов' }],
-	'custom-property-pattern': '^[A-z0-9]+(__[A-z0-9]+)*$',
+	'custom-property-pattern': '^[-_A-z0-9]*$',
 	'declaration-empty-line-before': null,
 	'declaration-property-value-no-unknown': null,
 };
