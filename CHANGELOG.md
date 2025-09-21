@@ -1,3 +1,9 @@
+## [1.3.2](https://github.com/FlarianWeb/frontend-preset/compare/v1.3.1...v1.3.2) (2025-09-21)
+
+### Bug Fixes
+
+* **Stylelint:** :white_check_mark: Resolve external stylelint plugins and config ([#64](https://github.com/FlarianWeb/frontend-preset/issues/64)) ([3c22871](https://github.com/FlarianWeb/frontend-preset/commit/3c22871809390fa4b5fe568d7dd89d6b2e837875))
+
 ## [1.3.1](https://github.com/FlarianWeb/frontend-preset/compare/v1.3.0...v1.3.1) (2025-09-20)
 
 ### Bug Fixes
