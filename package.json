@@ -61,7 +61,7 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "unbuild",
+		"build": "NODE_OPTIONS=\"--max-old-space-size=4096\" unbuild",
 		"lint": "eslint",
 		"typecheck": "tsc --noEmit",
 		"pack:local": "pnpm build && pnpm pack"
@@ -79,6 +79,7 @@
 		"@semantic-release/npm": "12.0.2",
 		"@stylistic/eslint-plugin": "5.3.1",
 		"@types/eslint": "9.6.1",
+		"@types/node": "24.5.2",
 		"conventional-changelog-conventionalcommits": "9.1.0",
 		"eslint": "9.35.0",
 		"eslint-config-prettier": "10.1.8",
