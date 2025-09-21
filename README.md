@@ -60,7 +60,8 @@ pnpm add pug @vue/language-plugin-pug -D
 - [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
 
 ## Примеры конфигураций:
-### eslint.config.ts
+### Настройка ESLint
+#### eslint.config.ts
 ```ts
 import { all } from '@flarian/frontend-preset/eslint';
 
@@ -71,17 +72,28 @@ export default [
 		ignores: ['dist/**', 'node_modules/**', 'pnpm-lock.yaml'],
 	},
 ];
-
 ```
 
-### prettier.config.mjs
+---
+
+### Настройка prettier
+- Если вы не используете синтаксис pug в вашем vue проекте то вы можете пропустить этот шаг.
+- Если вы используете Pug в Vue проекте, то необходимо добавить зависимость @prettier/plugin-pug в ваш проект и определить конфигурацию prettier.config.mjs:
+```sh
+pnpm add @prettier/plugin-pug -D
+```
+
+#### prettier.config.mjs
 ```js
 import { all } from '@flarian/frontend-preset/prettier';
 
 export default all;
 ```
 
-### stylelint.config.mjs
+---
+
+### Настройка stylelint
+#### stylelint.config.mjs
 ```js
 import { all } from '@flarian/frontend-preset/stylelint';
 
