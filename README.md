@@ -16,7 +16,41 @@
 
 ## Установка
 ```sh
-pnpm add @flarian/frontend-preset
+pnpm add @flarian/frontend-preset eslint prettier stylelint -D
+```
+
+## tsconfig.json
+```json
+{
+	"compilerOptions": {
+		"target": "esnext",
+		"module": "esnext",
+		"moduleResolution": "node",
+		"esModuleInterop": true,
+		"strict": true,
+		"strictNullChecks": true,
+		"noUnusedLocals": true,
+		"jsx": "preserve",
+		"resolveJsonModule": true,
+		"outDir": "dist",
+		"baseUrl": ".",
+		"declaration": true,
+		"declarationMap": true,
+	},
+}
+```
+
+## Для поддержки PUG синтаксиса в .vue:
+```sh
+pnpm add pug @vue/language-plugin-pug -D
+```
+Добавить в tsconfig.json:
+```json
+{
+	"vueCompilerOptions": {
+		"plugins": ["@vue/language-plugin-pug"]
+	},
+}
 ```
 
 ## Расширения vsCode:
