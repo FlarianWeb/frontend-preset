@@ -12,7 +12,7 @@ export default <Linter.Config>{
 		'@typescript-eslint': tsPlugin.plugin,
 	},
 	rules: {
-		'@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+		'@typescript-eslint/consistent-type-definitions': 'off',
 		'@typescript-eslint/no-shadow': 'error',
 		'@typescript-eslint/no-unused-vars': 'off',
 		'@typescript-eslint/no-namespace': 'off',
