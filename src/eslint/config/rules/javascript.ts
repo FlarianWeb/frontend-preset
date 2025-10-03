@@ -6,6 +6,7 @@ export default <Linter.Config>{
 		'arrow-body-style': ['error', 'as-needed'],
 		curly: 'error',
 		'func-names': ['error', 'always'],
+		'no-undef': 'off',
 		'no-alert': 'error',
 		'no-console': 'error',
 		'no-var': 'error',
