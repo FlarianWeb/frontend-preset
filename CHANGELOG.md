@@ -1,3 +1,12 @@
+## [1.3.3](https://github.com/FlarianWeb/frontend-preset/compare/v1.3.2...v1.3.3) (2025-10-03)
+
+### Bug Fixes
+
+* **EsLint:** :bug: Fix bug Eslint no-undef ([#72](https://github.com/FlarianWeb/frontend-preset/issues/72)) ([83e9d2e](https://github.com/FlarianWeb/frontend-preset/commit/83e9d2e4cef903b4693dcb001d749d786d8486e9))
+* **EsLint:** :bug: fix the bug in typescript.ts ([#74](https://github.com/FlarianWeb/frontend-preset/issues/74)) ([2140834](https://github.com/FlarianWeb/frontend-preset/commit/2140834cbea10991235c7988842e3feb646fc960))
+* **Prettier:** :bug: change literal to as-is ([#73](https://github.com/FlarianWeb/frontend-preset/issues/73)) ([bdc450a](https://github.com/FlarianWeb/frontend-preset/commit/bdc450af1fb4ec8cd0b28f453ae7d947861d2fa7))
+* **Stylelint:** :bug: Fix CSS variables custom property pattern ([#68](https://github.com/FlarianWeb/frontend-preset/issues/68)) ([6247943](https://github.com/FlarianWeb/frontend-preset/commit/624794386dd7b81d631f9a43b01d64adebfa34a3))
+
 ## [1.3.2](https://github.com/FlarianWeb/frontend-preset/compare/v1.3.1...v1.3.2) (2025-09-21)
 
 ### Bug Fixes
