@@ -1,3 +1,9 @@
+## [1.3.4](https://github.com/FlarianWeb/frontend-preset/compare/v1.3.3...v1.3.4) (2025-10-08)
+
+### Bug Fixes
+
+* **EsLint:** :bug: Remove import-sort ([#76](https://github.com/FlarianWeb/frontend-preset/issues/76)) ([26a36ea](https://github.com/FlarianWeb/frontend-preset/commit/26a36eaa0780e807fbd2a8ded050c14c029a1f7f))
+
 ## [1.3.3](https://github.com/FlarianWeb/frontend-preset/compare/v1.3.2...v1.3.3) (2025-10-03)
 
 ### Bug Fixes
