@@ -7,16 +7,6 @@ export default <Linter.Config>{
 		'@simple-import-sort': simpleImportSort,
 	},
 	rules: {
-		'sort-imports': [
-			'warn',
-			{
-				ignoreCase: false,
-				ignoreDeclarationSort: true,
-				ignoreMemberSort: false,
-				allowSeparatedGroups: false,
-			},
-		],
-
 		'@simple-import-sort/imports': [
 			'warn',
 			{
