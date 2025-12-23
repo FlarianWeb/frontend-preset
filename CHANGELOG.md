@@ -1,3 +1,9 @@
+## [1.4.0](https://github.com/FlarianWeb/frontend-preset/compare/v1.3.4...v1.4.0) (2025-12-23)
+
+### Features
+
+* **EsLint:** :bug: optional typescript-eslint and up deps ([#78](https://github.com/FlarianWeb/frontend-preset/issues/78)) ([addfd41](https://github.com/FlarianWeb/frontend-preset/commit/addfd41ca925acc9ee20202d903f169f0860bb13))
+
 ## [1.3.4](https://github.com/FlarianWeb/frontend-preset/compare/v1.3.3...v1.3.4) (2025-10-08)
 
 ### Bug Fixes
