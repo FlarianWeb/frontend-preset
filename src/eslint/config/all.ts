@@ -1,3 +1,5 @@
+import type { Linter } from 'eslint';
+
 import { baseConfig } from './base';
 import { importsConfig } from './imports';
 import { jsonConfig } from './json';
@@ -11,4 +13,9 @@ const withApp = [...withNode, ...jsxConfig];
 const withReact = [...withApp, ...reactConfig];
 const withVue = [...withApp, ...vueConfig];
 
-export const all = { withNode, withApp, withReact, withVue };
+export const all: {
+	withNode: Linter.Config[];
+	withApp: Linter.Config[];
+	withReact: Linter.Config[];
+	withVue: Linter.Config[];
+} = { withNode, withApp, withReact, withVue };
