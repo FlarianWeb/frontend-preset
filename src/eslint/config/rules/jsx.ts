@@ -67,12 +67,6 @@ export default <Linter.Config>{
 		'@stylistic/jsx-function-call-newline': ['warn', 'multiline'],
 
 		/**
-		 * Принудительно применять отступ JSX. Устарело, вместо этого используйте правило `indent`.
-		 * https://eslint.style/rules/default/jsx-indent
-		 */
-		'@stylistic/jsx-indent': ['warn', 'tab', { checkAttributes: true, indentLogicalExpressions: true }],
-
-		/**
 		 * Обеспечить отступы свойств в JSX
 		 * https://eslint.style/rules/default/jsx-indent-props
 		 */
@@ -109,12 +103,6 @@ export default <Linter.Config>{
 				ignore: [],
 			},
 		],
-
-		/**
-		 * Запретить множественные пробелы между встроенными свойствами JSX
-		 * https://eslint.style/rules/default/jsx-props-no-multi-spaces
-		 */
-		'@stylistic/jsx-props-no-multi-spaces': ['warn'],
 
 		/**
 		 * Обеспечить последовательное использование двойных или одинарных кавычек в атрибутах JSX
