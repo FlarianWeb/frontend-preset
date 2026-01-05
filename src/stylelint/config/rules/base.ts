@@ -3,6 +3,7 @@ const MAX_DECLARATION_PER_LINE = 5;
 const baseRules = {
 	'no-empty-source': [true, { message: 'Запрещены пустые файлы' }],
 	'string-no-newline': [true, { message: 'Нельзя переносить строки в строковых литералах' }],
+	'selector-class-pattern': ['^[a-zA-Z][a-zA-Z0-9_-]*$', { resolveNestedSelectors: true }],
 	'declaration-block-single-line-max-declarations': [
 		MAX_DECLARATION_PER_LINE,
 		{
