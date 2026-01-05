@@ -1,3 +1,9 @@
+## [1.4.1](https://github.com/FlarianWeb/frontend-preset/compare/v1.4.0...v1.4.1) (2026-01-05)
+
+### Bug Fixes
+
+* **Stylelint:** :rotating_light: add selector class pattern rule ([#80](https://github.com/FlarianWeb/frontend-preset/issues/80)) ([416a263](https://github.com/FlarianWeb/frontend-preset/commit/416a263b1a6f791873e1b62c4c2ebdc26c323d1a))
+
 ## [1.4.0](https://github.com/FlarianWeb/frontend-preset/compare/v1.3.4...v1.4.0) (2025-12-23)
 
 ### Features
