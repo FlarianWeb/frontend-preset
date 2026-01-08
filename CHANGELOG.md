@@ -1,3 +1,9 @@
+## [1.4.2](https://github.com/FlarianWeb/frontend-preset/compare/v1.4.1...v1.4.2) (2026-01-08)
+
+### Bug Fixes
+
+* **build:** :sparkles: update dependencies ([#82](https://github.com/FlarianWeb/frontend-preset/issues/82)) ([81c8a4b](https://github.com/FlarianWeb/frontend-preset/commit/81c8a4bc1eacff75d1a7e45be817b5a50190f8ee))
+
 ## [1.4.1](https://github.com/FlarianWeb/frontend-preset/compare/v1.4.0...v1.4.1) (2026-01-05)
 
 ### Bug Fixes
