@@ -1,3 +1,9 @@
+## [1.4.3](https://github.com/FlarianWeb/frontend-preset/compare/v1.4.2...v1.4.3) (2026-01-08)
+
+### Bug Fixes
+
+* **Stylelint:** :bug: Remove require.resolve for plugin paths to support modern Node.js ([#84](https://github.com/FlarianWeb/frontend-preset/issues/84)) ([dbbbc66](https://github.com/FlarianWeb/frontend-preset/commit/dbbbc66d15db39640972dd28184b4cb36929fd37))
+
 ## [1.4.2](https://github.com/FlarianWeb/frontend-preset/compare/v1.4.1...v1.4.2) (2026-01-08)
 
 ### Bug Fixes
