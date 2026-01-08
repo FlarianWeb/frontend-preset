@@ -93,12 +93,31 @@ export default all;
 ---
 
 ### Настройка stylelint
+В зависимости от используемого препроцессора (LESS или SCSS), необходимо установить дополнительные зависимости:
+
+#### Для LESS:
+```sh
+pnpm add stylelint-order stylelint-less stylelint-config-standard stylelint-config-standard-less stylelint-config-recommended-vue -D
+```
+
+#### Для SCSS:
+```sh
+pnpm add stylelint-order stylelint-scss stylelint-config-standard stylelint-config-standard-scss stylelint-config-recommended-vue -D
+```
+
 #### stylelint.config.mjs
 ```js
 import { all } from '@flarian/frontend-preset/stylelint';
 
 export default {
 	extends: [all.less, all.scss],
+};
+```
+
+**Примечание:** Используйте только нужные пресеты в `extends`. Например, если работаете только с LESS:
+```js
+export default {
+	extends: [all.less],
 };
 ```
 
