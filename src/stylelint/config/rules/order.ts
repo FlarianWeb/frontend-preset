@@ -15,6 +15,7 @@ const orderRules = {
 			{ type: 'at-rule', name: 'mixin' },
 			{ type: 'at-rule', mixin: true },
 			'rules',
+			{ type: 'at-rule', name: 'media' },
 			'at-rules',
 		],
 	],
