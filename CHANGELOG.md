@@ -1,3 +1,9 @@
+## [1.4.4](https://github.com/FlarianWeb/frontend-preset/compare/v1.4.3...v1.4.4) (2026-01-10)
+
+### Bug Fixes
+
+* **Stylelint:** :bug: Stylelint media css fix ([#86](https://github.com/FlarianWeb/frontend-preset/issues/86)) ([7d60342](https://github.com/FlarianWeb/frontend-preset/commit/7d603429017d99f3776f8724fc9a52336cbf6412))
+
 ## [1.4.3](https://github.com/FlarianWeb/frontend-preset/compare/v1.4.2...v1.4.3) (2026-01-08)
 
 ### Bug Fixes
