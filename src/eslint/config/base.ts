@@ -7,16 +7,24 @@ import esLintJavaScriptRules from './rules/javascript';
 import esLintStylisticRules from './rules/stylistic';
 import esLintTypeScriptRules from './rules/typescript';
 
-export const baseConfig: Linter.Config[] = [
-	{
-		languageOptions: {
-			globals: { ...globals.browser, ...globals.node },
-		},
-	},
+function stripPlugins({ plugins, ...rest }: Linter.Config): Linter.Config {
+	return rest;
+}
 
-	jsPlugin.configs.recommended,
-	...tsPlugin.configs.recommended,
-	esLintJavaScriptRules,
-	esLintTypeScriptRules,
-	esLintStylisticRules,
-];
+export function createBaseConfig({ registerPlugins = true }: { registerPlugins?: boolean } = {}): Linter.Config[] {
+	return [
+		{
+			languageOptions: {
+				globals: { ...globals.browser, ...globals.node },
+			},
+		},
+
+		jsPlugin.configs.recommended,
+		...(registerPlugins ? tsPlugin.configs.recommended : tsPlugin.configs.recommended.map(stripPlugins)),
+		esLintJavaScriptRules,
+		registerPlugins ? esLintTypeScriptRules : stripPlugins(esLintTypeScriptRules),
+		esLintStylisticRules,
+	];
+}
+
+export const baseConfig: Linter.Config[] = createBaseConfig();
