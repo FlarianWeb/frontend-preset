@@ -1,3 +1,9 @@
+## [1.5.0](https://github.com/FlarianWeb/frontend-preset/compare/v1.4.4...v1.5.0) (2026-02-03)
+
+### Features
+
+* add registerPlugins option to eslint config factories ([c9f6dee](https://github.com/FlarianWeb/frontend-preset/commit/c9f6deeffa2981fe2b7e8fb00d45972810332856))
+
 ## [1.4.4](https://github.com/FlarianWeb/frontend-preset/compare/v1.4.3...v1.4.4) (2026-01-10)
 
 ### Bug Fixes
