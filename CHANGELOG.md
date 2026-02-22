@@ -1,3 +1,9 @@
+## [1.6.0](https://github.com/FlarianWeb/frontend-preset/compare/v1.5.0...v1.6.0) (2026-02-22)
+
+### Features
+
+* **EsLint:** :rocket: update deps to eslint10 ([#88](https://github.com/FlarianWeb/frontend-preset/issues/88)) ([fea70c6](https://github.com/FlarianWeb/frontend-preset/commit/fea70c6946e7d2b21ced782a7a3cd51fb8d14b8b))
+
 ## [1.5.0](https://github.com/FlarianWeb/frontend-preset/compare/v1.4.4...v1.5.0) (2026-02-03)
 
 ### Features
