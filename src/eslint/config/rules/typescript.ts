@@ -16,5 +16,13 @@ export default <Linter.Config>{
 		'@typescript-eslint/no-shadow': 'error',
 		'@typescript-eslint/no-unused-vars': 'off',
 		'@typescript-eslint/no-namespace': 'off',
+		'@typescript-eslint/consistent-type-imports': [
+			'error',
+			{
+				prefer: 'type-imports',
+				disallowTypeAnnotations: false,
+				fixStyle: 'inline-type-imports',
+			},
+		],
 	},
 };
