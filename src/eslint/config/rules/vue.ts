@@ -11,6 +11,7 @@ export default <Linter.Config>{
 		vue: pluginVue,
 	},
 	rules: {
+		'vue/no-required-prop-with-default': 'off',
 		'vue/multi-word-component-names': 'off',
 		'vue/html-indent': [
 			'warn',
