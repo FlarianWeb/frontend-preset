@@ -70,38 +70,38 @@
 	"engines": {
 		"node": ">=22.5.0"
 	},
-	"packageManager": "pnpm@10.30.1",
+	"packageManager": "pnpm@10.32.1",
 	"devDependencies": {
 		"@eslint/js": "10.0.1",
 		"@prettier/plugin-pug": "3.4.2",
 		"@semantic-release/changelog": "6.0.3",
 		"@semantic-release/git": "10.0.1",
 		"@semantic-release/github": "12.0.6",
-		"@semantic-release/npm": "13.1.4",
-		"@stylistic/eslint-plugin": "5.9.0",
+		"@semantic-release/npm": "13.1.5",
+		"@stylistic/eslint-plugin": "5.10.0",
 		"@types/eslint": "9.6.1",
-		"@types/node": "25.3.0",
-		"eslint": "10.0.1",
+		"@types/node": "25.5.0",
+		"eslint": "10.0.3",
 		"eslint-config-prettier": "10.1.8",
-		"eslint-plugin-jsonc": "3.0.0",
+		"eslint-plugin-jsonc": "3.1.2",
 		"eslint-plugin-prettier": "5.5.5",
 		"eslint-plugin-react": "7.37.5",
 		"eslint-plugin-react-hooks": "7.0.1",
 		"eslint-plugin-simple-import-sort": "12.1.1",
 		"eslint-plugin-vue": "10.8.0",
-		"globals": "17.3.0",
+		"globals": "17.4.0",
 		"prettier": "3.8.1",
 		"semantic-release": "25.0.3",
-		"stylelint": "17.3.0",
+		"stylelint": "17.4.0",
 		"stylelint-config-recommended-vue": "1.6.1",
 		"stylelint-config-standard": "40.0.0",
 		"stylelint-config-standard-less": "4.0.1",
 		"stylelint-config-standard-scss": "17.0.0",
 		"stylelint-less": "4.0.0",
-		"stylelint-order": "7.0.1",
+		"stylelint-order": "8.0.0",
 		"stylelint-scss": "7.0.0",
 		"typescript": "5.9.3",
-		"typescript-eslint": "8.56.0",
+		"typescript-eslint": "8.57.0",
 		"unbuild": "3.6.1",
 		"vue-eslint-parser": "10.4.0"
 	},
@@ -111,39 +111,93 @@
 		"@stylistic/eslint-plugin": ">=5.0.0",
 		"eslint": ">=9.30.0",
 		"eslint-config-prettier": ">=10.1.0",
-		"eslint-plugin-jsonc": ">=2.20.0",
+		"eslint-plugin-jsonc": ">=3.0.0",
 		"eslint-plugin-prettier": ">=5.4.0",
 		"eslint-plugin-react": ">=7.37.0",
-		"eslint-plugin-react-hooks": ">=5.2.0",
+		"eslint-plugin-react-hooks": ">=7.0.0",
 		"eslint-plugin-simple-import-sort": ">=12.1.0",
 		"eslint-plugin-vue": ">=10.0.0",
-		"globals": ">=14.0.0",
+		"globals": ">=15.0.0",
 		"prettier": ">=3.5.0",
 		"stylelint": ">=16.20.0",
 		"stylelint-config-recommended-vue": ">=1.6.0",
-		"stylelint-config-standard": ">=39.0.0",
-		"stylelint-config-standard-less": ">=3.0.1",
-		"stylelint-config-standard-scss": ">=15.0.0",
-		"stylelint-less": ">=3.0.1",
-		"stylelint-order": ">=7.0.0",
-		"stylelint-scss": ">=6.12.0",
+		"stylelint-config-standard": ">=40.0.0",
+		"stylelint-config-standard-less": ">=4.0.0",
+		"stylelint-config-standard-scss": ">=17.0.0",
+		"stylelint-less": ">=4.0.0",
+		"stylelint-order": ">=8.0.0",
+		"stylelint-scss": ">=7.0.0",
 		"typescript-eslint": ">=8.56.0",
 		"vue-eslint-parser": ">=10.0.0"
 	},
 	"peerDependenciesMeta": {
+		"@eslint/js": {
+			"optional": true
+		},
+		"@prettier/plugin-pug": {
+			"optional": true
+		},
+		"@stylistic/eslint-plugin": {
+			"optional": true
+		},
 		"eslint": {
 			"optional": true
 		},
-		"typescript-eslint": {
+		"eslint-config-prettier": {
 			"optional": true
 		},
-		"@eslint/js": {
+		"eslint-plugin-jsonc": {
+			"optional": true
+		},
+		"eslint-plugin-prettier": {
+			"optional": true
+		},
+		"eslint-plugin-react": {
+			"optional": true
+		},
+		"eslint-plugin-react-hooks": {
+			"optional": true
+		},
+		"eslint-plugin-simple-import-sort": {
+			"optional": true
+		},
+		"eslint-plugin-vue": {
+			"optional": true
+		},
+		"globals": {
 			"optional": true
 		},
 		"prettier": {
 			"optional": true
 		},
 		"stylelint": {
+			"optional": true
+		},
+		"stylelint-config-recommended-vue": {
+			"optional": true
+		},
+		"stylelint-config-standard": {
+			"optional": true
+		},
+		"stylelint-config-standard-less": {
+			"optional": true
+		},
+		"stylelint-config-standard-scss": {
+			"optional": true
+		},
+		"stylelint-less": {
+			"optional": true
+		},
+		"stylelint-order": {
+			"optional": true
+		},
+		"stylelint-scss": {
+			"optional": true
+		},
+		"typescript-eslint": {
+			"optional": true
+		},
+		"vue-eslint-parser": {
 			"optional": true
 		}
 	}
