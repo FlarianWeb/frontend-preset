@@ -1,3 +1,9 @@
+## [1.6.1](https://github.com/FlarianWeb/frontend-preset/compare/v1.6.0...v1.6.1) (2026-03-12)
+
+### Bug Fixes
+
+* **EsLint:** :ambulance: vue/no-required-prop-with-default and @typescript-eslint/consistent-type-imports ([#90](https://github.com/FlarianWeb/frontend-preset/issues/90)) ([55c0d54](https://github.com/FlarianWeb/frontend-preset/commit/55c0d54f499754f0f1312586674214eebc2611c7))
+
 ## [1.6.0](https://github.com/FlarianWeb/frontend-preset/compare/v1.5.0...v1.6.0) (2026-02-22)
 
 ### Features
