@@ -46,8 +46,7 @@
 			"@semantic-release/git",
 			{
 				"assets": ["package.json", "CHANGELOG.md"],
-				"message": "chore(release): ${nextRelease.version}\n\n${nextRelease.notes}",
-				"push": false
+				"message": "chore(release): ${nextRelease.version}\n\n${nextRelease.notes}"
 			}
 		],
 		[
