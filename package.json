@@ -65,6 +65,7 @@
 		"inspect": "eslint --inspect-config",
 		"lint": "eslint",
 		"typecheck": "tsc --noEmit",
+		"check:deprecated": "node scripts/check-deprecated.mjs",
 		"pack:local": "pnpm build && pnpm pack"
 	},
 	"engines": {
