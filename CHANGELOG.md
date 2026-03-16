@@ -1,3 +1,42 @@
+## [2.0.0](https://github.com/FlarianWeb/frontend-preset/compare/v1.6.1...v2.0.0) (2026-03-16)
+
+### ⚠ BREAKING CHANGES
+
+* all named exports have been renamed and restructured.
+
+Removed:
+- `all`, `createAll` — monolithic config removed
+- `baseConfig`, `createBaseConfig` — base config removed
+- `importsConfig`, `jsonConfig`, `jsxConfig`, `prettierConfig`, `reactConfig` — old flat names removed
+
+Added:
+- `javascript`, `createJavascriptConfig`
+- `typescript`, `createTypescriptConfig`
+- `stylistic`, `createStylisticConfig`
+- `jsx`, `createJsxConfig`
+- `imports`, `createImportsConfig`
+- `json`, `createJsonConfig`
+- `packageJson`, `createPackageJsonConfig`
+- `tsconfigJson`, `createTsconfigJsonConfig`
+- `vue`, `createVueConfig`
+- `react`, `createReactConfig`
+- `prettier`, `createPrettierConfig`
+
+### Features
+
+* add check:deprecated script for ESLint and Stylelint rules ([c78f123](https://github.com/FlarianWeb/frontend-preset/commit/c78f1236ed25e6ee4ee3be5fba5cae25e9318def))
+* redesign public API with granular config exports ([eae9319](https://github.com/FlarianWeb/frontend-preset/commit/eae9319d49339a10be9321eda493d56323f90182))
+
+### Bug Fixes
+
+* **deps:** align peerDependencies minimum versions with tested major versions ([5375fd5](https://github.com/FlarianWeb/frontend-preset/commit/5375fd5dbe12397404eb7db021d96d16af9da182))
+* **deps:** relax stylelint-config-standard peer range to >=39 for less compatibility ([d18016a](https://github.com/FlarianWeb/frontend-preset/commit/d18016ae4d8baed058ced871b09c65b3070e0e1f))
+* **deps:** remove eslint-config-prettier ([f5f924e](https://github.com/FlarianWeb/frontend-preset/commit/f5f924e726c4c1fa88c9b097f0c544825f163ba0))
+* **deps:** restore conventional-changelog-conventionalcommits for semantic-release ([47a1139](https://github.com/FlarianWeb/frontend-preset/commit/47a11391c71ef3d00214ef507ef19642caf92882))
+* **deps:** update lock ([2e8b6b9](https://github.com/FlarianWeb/frontend-preset/commit/2e8b6b91a85f3ff718f3a6c34dd1d35ad32c8ea2))
+* **deps:** update pnpm lockfile after removing conventional-changelog dep ([7aa2df7](https://github.com/FlarianWeb/frontend-preset/commit/7aa2df7c359784c23061919f7326c533880b5432))
+* **release:** remove push:false from git plugin and drop redundant conventional-changelog dep ([71c6a2e](https://github.com/FlarianWeb/frontend-preset/commit/71c6a2e40fd49cbe965f0503a1661561a6130d1b))
+
 ## [1.6.1](https://github.com/FlarianWeb/frontend-preset/compare/v1.6.0...v1.6.1) (2026-03-12)
 
 ### Bug Fixes
