@@ -1,5 +1,10 @@
-import type { Linter } from 'eslint';
+import type { Config, CreateConfig } from '../types/config';
+import stripPlugins from '../utils/stripPlugins';
 
-import esLintImportSortRules from './rules/import-sort';
+import esLintImportsRules from './rules/imports';
 
-export const importsConfig: Linter.Config[] = [esLintImportSortRules];
+export const createImportsConfig: CreateConfig = ({ registerPlugins = true } = {}) => [
+	registerPlugins ? esLintImportsRules : stripPlugins(esLintImportsRules),
+];
+
+export const imports: Config = createImportsConfig();

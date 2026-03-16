@@ -2,7 +2,6 @@ import type { Linter } from 'eslint';
 import stylisticJs from '@stylistic/eslint-plugin';
 
 export default <Linter.Config>{
-	files: ['**/*.{js,ts,jsx,tsx,cjs,mjs,vue}'],
 	plugins: {
 		'@stylistic': stylisticJs,
 	},
@@ -11,7 +10,7 @@ export default <Linter.Config>{
 		 * Принудительно вводить переносы строк после открытия и перед закрытием скобок массива
 		 * https://eslint.style/rules/default/array-bracket-newline
 		 */
-		'@stylistic/array-bracket-newline': ['warn', { multiline: true, minItems: 4 }],
+		'@stylistic/array-bracket-newline': ['warn', 'consistent'],
 
 		/**
 		 * Обеспечить единообразие интервалов внутри скобок массива
@@ -23,19 +22,25 @@ export default <Linter.Config>{
 		 * Принудительно вставлять переносы строк после каждого элемента массива
 		 * https://eslint.style/rules/default/array-element-newline
 		 */
-		'@stylistic/array-element-newline': ['warn', { consistent: true, multiline: true, minItems: 4 }],
+		'@stylistic/array-element-newline': ['warn', 'consistent'],
 
 		/**
 		 * Требуйте заключения аргументов стрелочной функции в скобки
 		 * https://eslint.style/rules/default/arrow-parens
 		 */
-		'@stylistic/arrow-parens': ['off'],
+		'@stylistic/arrow-parens': ['warn', 'as-needed'],
 
 		/**
 		 * Обеспечить одинаковый интервал до и после стрелки в стрелочных функциях
 		 * https://eslint.style/rules/default/arrow-spacing
 		 */
-		'@stylistic/arrow-spacing': ['warn', { before: true, after: true }],
+		'@stylistic/arrow-spacing': [
+			'warn',
+			{
+				before: true,
+				after: true,
+			},
+		],
 
 		/**
 		 * Запрещать или принудительно вводить пробелы внутри блоков после открытия блока и перед закрытием блока
@@ -58,11 +63,14 @@ export default <Linter.Config>{
 			{
 				arrays: 'always-multiline',
 				objects: 'always-multiline',
-				imports: 'never',
-				exports: 'never',
-				functions: 'never',
-				importAttributes: 'never',
-				dynamicImports: 'never',
+				imports: 'always-multiline',
+				exports: 'always-multiline',
+				functions: 'only-multiline',
+				importAttributes: 'always-multiline',
+				dynamicImports: 'always-multiline',
+				enums: 'always-multiline',
+				generics: 'only-multiline',
+				tuples: 'always-multiline',
 			},
 		],
 
@@ -70,7 +78,13 @@ export default <Linter.Config>{
 		 * Обеспечьте одинаковый интервал до и после запятых
 		 * https://eslint.style/rules/default/comma-spacing
 		 */
-		'@stylistic/comma-spacing': ['warn', { before: false, after: true }],
+		'@stylistic/comma-spacing': [
+			'warn',
+			{
+				before: false,
+				after: true,
+			},
+		],
 
 		/**
 		 * Обеспечить единообразие стиля запятых
@@ -124,7 +138,13 @@ export default <Linter.Config>{
 		 * Обеспечить единообразие интервалов вокруг операторов `*` в функциях генератора
 		 * https://eslint.style/rules/default/generator-star-spacing
 		 */
-		'@stylistic/generator-star-spacing': ['warn', { before: true, after: false }],
+		'@stylistic/generator-star-spacing': [
+			'warn',
+			{
+				before: false,
+				after: true,
+			},
+		],
 
 		/**
 		 * Обеспечить расположение тел стрелочных функций
@@ -136,6 +156,7 @@ export default <Linter.Config>{
 		 * Обеспечить единообразие отступов
 		 * https://eslint.style/rules/default/indent
 		 */
+
 		'@stylistic/indent': ['warn', 'tab', { SwitchCase: 1 }],
 
 		/**
@@ -148,13 +169,25 @@ export default <Linter.Config>{
 		 * Обеспечьте соблюдение единообразных интервалов между именами свойств и аннотациями типов в типах и интерфейсах.
 		 * https://eslint.style/rules/default/key-spacing
 		 */
-		'@stylistic/key-spacing': ['warn', { beforeColon: false }],
+		'@stylistic/key-spacing': [
+			'warn',
+			{
+				beforeColon: false,
+				afterColon: true,
+			},
+		],
 
 		/**
 		 * Обеспечьте одинаковый интервал до и после ключевых слов.
 		 * https://eslint.style/rules/default/keyword-spacing
 		 */
-		'@stylistic/keyword-spacing': ['warn', { before: true }],
+		'@stylistic/keyword-spacing': [
+			'warn',
+			{
+				before: true,
+				after: true,
+			},
+		],
 
 		/**
 		 * Обеспечить положение строчных комментариев
@@ -175,10 +208,26 @@ export default <Linter.Config>{
 		'@stylistic/lines-around-comment': [
 			'warn',
 			{
-				allowBlockStart: true,
-				allowObjectStart: true,
+				beforeBlockComment: true,
+				afterBlockComment: false,
 				beforeLineComment: true,
 				afterLineComment: false,
+				allowBlockStart: true,
+				allowBlockEnd: true,
+				allowObjectStart: true,
+				allowObjectEnd: true,
+				allowArrayStart: true,
+				allowArrayEnd: true,
+				allowClassStart: true,
+				allowClassEnd: true,
+				allowEnumStart: true,
+				allowEnumEnd: true,
+				allowInterfaceStart: true,
+				allowInterfaceEnd: true,
+				allowModuleStart: true,
+				allowModuleEnd: true,
+				allowTypeStart: true,
+				allowTypeEnd: true,
 			},
 		],
 
@@ -186,13 +235,29 @@ export default <Linter.Config>{
 		 * Требовать или запрещать пустую строку между членами класса
 		 * https://eslint.style/rules/default/lines-between-class-members
 		 */
-		'@stylistic/lines-between-class-members': ['warn', 'always', { exceptAfterSingleLine: true }],
+		'@stylistic/lines-between-class-members': [
+			'warn',
+			'always',
+			{ exceptAfterSingleLine: true },
+		],
 
 		/**
 		 * Обеспечить максимальную длину строки
 		 * https://eslint.style/rules/default/max-len
 		 */
-		'@stylistic/max-len': ['off'],
+		'@stylistic/max-len': [
+			'warn',
+			{
+				code: 100,
+				ignoreUrls: true,
+				ignoreStrings: true,
+				ignoreTemplateLiterals: true,
+				ignoreRegExpLiterals: true,
+				ignoreComments: true,
+				ignoreTrailingComments: true,
+				ignorePattern: '^\\s*//[-!]?',
+			},
+		],
 
 		/**
 		 * Обеспечить максимально допустимое количество утверждений в строке
@@ -215,7 +280,6 @@ export default <Linter.Config>{
 					delimiter: 'semi',
 					requireLast: false,
 				},
-
 				overrides: {
 					interface: {
 						multiline: {
@@ -255,13 +319,13 @@ export default <Linter.Config>{
 		 * Запретить стрелочные функции там, где их можно спутать со сравнениями
 		 * https://eslint.style/rules/default/no-confusing-arrow
 		 */
-		'@stylistic/no-confusing-arrow': ['warn'],
+		'@stylistic/no-confusing-arrow': ['off'],
 
 		/**
 		 * Запретить ненужные скобки
 		 * https://eslint.style/rules/default/no-extra-parens
 		 */
-		'@stylistic/no-extra-parens': ['warn'],
+		'@stylistic/no-extra-parens': ['off'],
 
 		/**
 		 * Запретить ненужные точки с запятой
@@ -279,25 +343,33 @@ export default <Linter.Config>{
 		 * Запретить смешанные бинарные операторы
 		 * https://eslint.style/rules/default/no-mixed-operators
 		 */
-		'@stylistic/no-mixed-operators': ['error'],
+
+		'@stylistic/no-mixed-operators': 'off',
 
 		/**
 		 * Запретить смешанные пробелы и табуляции для отступов
 		 * https://eslint.style/rules/default/no-mixed-spaces-and-tabs
 		 */
-		'@stylistic/no-mixed-spaces-and-tabs': ['warn', 'smart-tabs'],
+		'@stylistic/no-mixed-spaces-and-tabs': ['warn'],
 
 		/**
-		 * Запретить множественные пробелы
+		 * Запретить множественные пробелы.
 		 * https://eslint.style/rules/default/no-multi-spaces
 		 */
-		'@stylistic/no-multi-spaces': ['warn', { ignoreEOLComments: true }],
+		'@stylistic/no-multi-spaces': ['warn'],
 
 		/**
 		 * Запретить несколько пустых строк
 		 * https://eslint.style/rules/default/no-multiple-empty-lines
 		 */
-		'@stylistic/no-multiple-empty-lines': ['warn', { max: 1, maxBOF: 0, maxEOF: 0 }],
+		'@stylistic/no-multiple-empty-lines': [
+			'warn',
+			{
+				max: 1,
+				maxBOF: 0,
+				maxEOF: 1,
+			},
+		],
 
 		/**
 		 * Запретить табуляцию
@@ -327,23 +399,7 @@ export default <Linter.Config>{
 		 * Обеспечивать единообразие переносов строк после открывающихся и перед закрывающимися фигурными скобками
 		 * https://eslint.style/rules/default/object-curly-newline
 		 */
-		'@stylistic/object-curly-newline': [
-			'warn',
-			{
-				ObjectExpression: {
-					multiline: true,
-					minProperties: 4,
-					consistent: true,
-				},
-				ObjectPattern: {
-					multiline: true,
-					minProperties: 4,
-					consistent: true,
-				},
-				ImportDeclaration: { multiline: true, minProperties: 4 },
-				ExportDeclaration: { multiline: true, minProperties: 4 },
-			},
-		],
+		'@stylistic/object-curly-newline': ['warn', { consistent: true }],
 
 		/**
 		 * Обеспечьте постоянный интервал внутри скобок
@@ -367,13 +423,13 @@ export default <Linter.Config>{
 		 * Обеспечить единый стиль переноса строк для операторов
 		 * https://eslint.style/rules/default/operator-linebreak
 		 */
-		'@stylistic/operator-linebreak': ['warn', 'before'],
+		'@stylistic/operator-linebreak': ['warn', 'after', { overrides: { '?': 'before', ':': 'before', '|': 'before' } }],
 
 		/**
 		 * Требовать или запрещать отступы внутри блоков
 		 * https://eslint.style/rules/default/padded-blocks
 		 */
-		'@stylistic/padded-blocks': ['off'],
+		'@stylistic/padded-blocks': ['warn', 'never'],
 
 		/**
 		 * Требовать или запрещать заполнение строк между операторами
@@ -381,30 +437,106 @@ export default <Linter.Config>{
 		 */
 		'@stylistic/padding-line-between-statements': [
 			'warn',
-			{ blankLine: 'always', prev: '*', next: ['*'] },
+			{
+				blankLine: 'always',
+				prev: '*',
+				next: ['*'],
+			},
 			{
 				blankLine: 'any',
 				prev: ['const', 'let', 'var'],
 				next: ['const', 'let', 'var'],
 			},
-			{ blankLine: 'any', prev: ['block'], next: ['block'] },
-			{ blankLine: 'any', prev: ['block-like'], next: ['block-like'] },
-			{ blankLine: 'any', prev: ['cjs-export'], next: ['cjs-export'] },
-			{ blankLine: 'any', prev: ['cjs-import'], next: ['cjs-import'] },
-			{ blankLine: 'any', prev: ['class'], next: ['class'] },
-			{ blankLine: 'any', prev: ['continue'], next: ['continue'] },
-			{ blankLine: 'any', prev: ['debugger'], next: ['debugger'] },
-			{ blankLine: 'any', prev: ['default'], next: ['default'] },
-			{ blankLine: 'any', prev: ['directive'], next: ['directive'] },
-			{ blankLine: 'any', prev: ['do'], next: ['do'] },
-			{ blankLine: 'any', prev: ['empty'], next: ['empty'] },
-			{ blankLine: 'any', prev: ['export'], next: ['export'] },
-			{ blankLine: 'any', prev: ['expression'], next: ['expression'] },
-			{ blankLine: 'any', prev: ['for'], next: ['for'] },
-			{ blankLine: 'any', prev: ['function'], next: ['function'] },
-			{ blankLine: 'any', prev: ['if'], next: ['if'] },
-			{ blankLine: 'any', prev: ['iife'], next: ['iife'] },
-			{ blankLine: 'any', prev: ['import'], next: ['import'] },
+			{
+				blankLine: 'any',
+				prev: ['block'],
+				next: ['block'],
+			},
+			{
+				blankLine: 'any',
+				prev: ['block-like'],
+				next: ['block-like'],
+			},
+			{
+				blankLine: 'any',
+				prev: ['cjs-export'],
+				next: ['cjs-export'],
+			},
+			{
+				blankLine: 'any',
+				prev: ['cjs-import'],
+				next: ['cjs-import'],
+			},
+			{
+				blankLine: 'any',
+				prev: ['class'],
+				next: ['class'],
+			},
+			{
+				blankLine: 'any',
+				prev: ['continue'],
+				next: ['continue'],
+			},
+			{
+				blankLine: 'any',
+				prev: ['debugger'],
+				next: ['debugger'],
+			},
+			{
+				blankLine: 'any',
+				prev: ['default'],
+				next: ['default'],
+			},
+			{
+				blankLine: 'any',
+				prev: ['directive'],
+				next: ['directive'],
+			},
+			{
+				blankLine: 'any',
+				prev: ['do'],
+				next: ['do'],
+			},
+			{
+				blankLine: 'any',
+				prev: ['empty'],
+				next: ['empty'],
+			},
+			{
+				blankLine: 'any',
+				prev: ['export'],
+				next: ['export'],
+			},
+			{
+				blankLine: 'any',
+				prev: ['expression'],
+				next: ['expression'],
+			},
+			{
+				blankLine: 'any',
+				prev: ['for'],
+				next: ['for'],
+			},
+			{
+				blankLine: 'any',
+				prev: ['function'],
+				next: ['function'],
+			},
+			{
+				blankLine: 'any',
+				prev: ['if'],
+				next: ['if'],
+			},
+			{
+				blankLine: 'any',
+				prev: ['iife'],
+				next: ['iife'],
+			},
+			{
+				blankLine: 'any',
+				prev: ['import'],
+				next: ['import'],
+			},
 			{
 				blankLine: 'any',
 				prev: ['multiline-block-like'],
@@ -425,7 +557,11 @@ export default <Linter.Config>{
 				prev: ['multiline-expression'],
 				next: ['multiline-expression'],
 			},
-			{ blankLine: 'any', prev: ['return'], next: ['return'] },
+			{
+				blankLine: 'any',
+				prev: ['return'],
+				next: ['return'],
+			},
 			{
 				blankLine: 'any',
 				prev: ['singleline-const', 'singleline-let', 'singleline-var'],
@@ -436,26 +572,60 @@ export default <Linter.Config>{
 				prev: ['singleline-export'],
 				next: ['singleline-export'],
 			},
-			{ blankLine: 'any', prev: ['switch'], next: ['switch'] },
-			{ blankLine: 'any', prev: ['throw'], next: ['throw'] },
-			{ blankLine: 'any', prev: ['try'], next: ['try'] },
-			{ blankLine: 'any', prev: ['while'], next: ['while'] },
-			{ blankLine: 'any', prev: ['with'], next: ['with'] },
-			{ blankLine: 'any', prev: ['type'], next: ['type'] },
-			{ blankLine: 'any', prev: ['interface'], next: ['interface'] },
+			{
+				blankLine: 'any',
+				prev: ['switch'],
+				next: ['switch'],
+			},
+			{
+				blankLine: 'any',
+				prev: ['throw'],
+				next: ['throw'],
+			},
+			{
+				blankLine: 'any',
+				prev: ['try'],
+				next: ['try'],
+			},
+			{
+				blankLine: 'any',
+				prev: ['while'],
+				next: ['while'],
+			},
+			{
+				blankLine: 'any',
+				prev: ['with'],
+				next: ['with'],
+			},
+			{
+				blankLine: 'any',
+				prev: ['type'],
+				next: ['type'],
+			},
+			{
+				blankLine: 'any',
+				prev: ['interface'],
+				next: ['interface'],
+			},
 		],
 
 		/**
 		 * Обязательно заключайте в кавычки имена свойств объектов, типов, интерфейсов и перечислений.
 		 * https://eslint.style/rules/default/quote-props
 		 */
-		'@stylistic/quote-props': ['warn', 'as-needed', { keywords: false, numbers: true }],
+		'@stylistic/quote-props': ['warn', 'as-needed'],
 
 		/**
 		 * Обеспечить последовательное использование обратных кавычек, двойных или одинарных кавычек
 		 * https://eslint.style/rules/default/quotes
 		 */
-		'@stylistic/quotes': ['warn', 'single'],
+		'@stylistic/quotes': [
+			'warn',
+			'single',
+			{
+				avoidEscape: true,
+			},
+		],
 
 		/**
 		 * Обеспечить соблюдение интервалов между операторами rest и spread и их выражениями
@@ -473,7 +643,13 @@ export default <Linter.Config>{
 		 * Обеспечьте одинаковый интервал до и после точек с запятой
 		 * https://eslint.style/rules/default/semi-spacing
 		 */
-		'@stylistic/semi-spacing': ['warn', { before: false, after: true }],
+		'@stylistic/semi-spacing': [
+			'warn',
+			{
+				before: false,
+				after: true,
+			},
+		],
 
 		/**
 		 * Обеспечить правильное расположение точек с запятой
@@ -491,7 +667,14 @@ export default <Linter.Config>{
 		 * Обеспечить одинаковый интервал перед скобками функций
 		 * https://eslint.style/rules/default/space-before-function-paren
 		 */
-		'@stylistic/space-before-function-paren': ['warn', 'always'],
+		'@stylistic/space-before-function-paren': [
+			'warn',
+			{
+				anonymous: 'never',
+				named: 'never',
+				asyncArrow: 'always',
+			},
+		],
 
 		/**
 		 * Обеспечьте одинаковый интервал внутри скобок
@@ -509,7 +692,13 @@ export default <Linter.Config>{
 		 * Обеспечивать единообразие интервалов до и после унарных операторов
 		 * https://eslint.style/rules/default/space-unary-ops
 		 */
-		'@stylistic/space-unary-ops': ['warn'],
+		'@stylistic/space-unary-ops': [
+			'warn',
+			{
+				words: true,
+				nonwords: false,
+			},
+		],
 
 		/**
 		 * Обеспечьте единообразие интервалов после `//` или `/*` в комментариях
@@ -521,7 +710,13 @@ export default <Linter.Config>{
 		 * Обеспечить наличие пробелов вокруг двоеточий в операторах switch
 		 * https://eslint.style/rules/default/switch-colon-spacing
 		 */
-		'@stylistic/switch-colon-spacing': ['warn', { after: true, before: false }],
+		'@stylistic/switch-colon-spacing': [
+			'warn',
+			{
+				before: false,
+				after: true,
+			},
+		],
 
 		/**
 		 * Требовать или запрещать пробелы вокруг встроенных выражений строк шаблонов
@@ -539,7 +734,14 @@ export default <Linter.Config>{
 		 * Требуйте одинакового интервала вокруг аннотаций типов.
 		 * https://eslint.style/rules/default/type-annotation-spacing
 		 */
-		'@stylistic/type-annotation-spacing': ['warn'],
+		'@stylistic/type-annotation-spacing': [
+			'warn',
+			{
+				before: true,
+				after: true,
+				overrides: { colon: { before: false, after: true } },
+			},
+		],
 
 		/**
 		 * Обеспечивает единообразие интервалов внутри обобщенных типов TypeScript
@@ -563,6 +765,12 @@ export default <Linter.Config>{
 		 * Требуйте заключения в скобки литералов регулярных выражений
 		 * https://eslint.style/rules/default/wrap-regex
 		 */
-		'@stylistic/wrap-regex': ['warn'],
+		'@stylistic/wrap-regex': ['off'],
+
+		/**
+		 * Пробелы вокруг * в yield*: yield* generator
+		 * https://eslint.style/rules/yield-star-spacing
+		 */
+		'@stylistic/yield-star-spacing': ['warn', 'after'],
 	},
 };

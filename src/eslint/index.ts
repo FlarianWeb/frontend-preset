@@ -1,8 +1,16 @@
-export { all, createAll } from './config/all';
-export { baseConfig, createBaseConfig } from './config/base';
-export { importsConfig } from './config/imports';
-export { jsonConfig } from './config/json';
-export { jsxConfig } from './config/jsx';
-export { prettierConfig } from './config/prettier';
-export { reactConfig } from './config/react';
-export { vueConfig, createVueConfig } from './config/vue';
+export { javascript, createJavascriptConfig } from './config/javascript';
+export { typescript, createTypescriptConfig } from './config/typescript';
+export { stylistic, createStylisticConfig } from './config/stylistic';
+export { jsx, createJsxConfig } from './config/jsx';
+export { imports, createImportsConfig } from './config/imports';
+export {
+	json,
+	createJsonConfig,
+	packageJson,
+	createPackageJsonConfig,
+	tsconfigJson,
+	createTsconfigJsonConfig,
+} from './config/json';
+export { vue, createVueConfig } from './config/vue';
+export { react, createReactConfig } from './config/react';
+export { prettier, createPrettierConfig } from './config/prettier';

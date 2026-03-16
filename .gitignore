@@ -3,3 +3,4 @@ dist/
 
 .npmrc
 .env
+.DS_Store

@@ -2,7 +2,6 @@ import type { Linter } from 'eslint';
 import stylisticJs from '@stylistic/eslint-plugin';
 
 export default <Linter.Config>{
-	files: ['**/*.{jsx,tsx}'],
 	plugins: { '@stylistic': stylisticJs },
 	rules: {
 		/**
@@ -27,13 +26,26 @@ export default <Linter.Config>{
 		 * Запрещает ненужные выражения JSX, когда достаточно одних литералов, или применяет выражения JSX к литералам в дочерних элементах JSX или атрибутах
 		 * https://eslint.style/rules/default/jsx-curly-brace-presence
 		 */
-		'@stylistic/jsx-curly-brace-presence': ['warn', { props: 'never', children: 'never', propElementValues: 'always' }],
+		'@stylistic/jsx-curly-brace-presence': [
+			'warn',
+			{
+				props: 'never',
+				children: 'never',
+				propElementValues: 'always',
+			},
+		],
 
 		/**
 		 * Обеспечить единообразие переносов строк в фигурных скобках в атрибутах и выражениях JSX
 		 * https://eslint.style/rules/default/jsx-curly-newline
 		 */
-		'@stylistic/jsx-curly-newline': ['warn', { multiline: 'consistent', singleline: 'consistent' }],
+		'@stylistic/jsx-curly-newline': [
+			'warn',
+			{
+				multiline: 'consistent',
+				singleline: 'consistent',
+			},
+		],
 
 		/**
 		 * Принудительное или запретительное использование пробелов внутри фигурных скобок в атрибутах и выражениях JSX
@@ -76,7 +88,15 @@ export default <Linter.Config>{
 		 * Обеспечить максимальное количество реквизитов в одной строке в JSX
 		 * https://eslint.style/rules/default/jsx-max-props-per-line
 		 */
-		'@stylistic/jsx-max-props-per-line': ['warn', { maximum: { single: 3, multi: 1 } }],
+		'@stylistic/jsx-max-props-per-line': [
+			'warn',
+			{
+				maximum: {
+					single: 3,
+					multi: 1,
+				},
+			},
+		],
 
 		/**
 		 * Требовать или запрещать новую строку после элементов и выражений jsx.
@@ -114,23 +134,11 @@ export default <Linter.Config>{
 		 * Запретить дополнительные закрывающие теги для компонентов без дочерних элементов
 		 * https://eslint.style/rules/default/jsx-self-closing-comp
 		 */
-		'@stylistic/jsx-self-closing-comp': ['warn', { component: true, html: true }],
-
-		/**
-		 * Обеспечить сортировку реквизитов в алфавитном порядке
-		 * https://eslint.style/rules/default/jsx-sort-props
-		 */
-		'@stylistic/jsx-sort-props': [
+		'@stylistic/jsx-self-closing-comp': [
 			'warn',
 			{
-				callbacksLast: true,
-				shorthandFirst: true,
-				shorthandLast: true,
-				multiline: 'first',
-				ignoreCase: true,
-				noSortAlphabetically: true,
-				reservedFirst: true,
-				locale: 'auto',
+				component: true,
+				html: true,
 			},
 		],
 

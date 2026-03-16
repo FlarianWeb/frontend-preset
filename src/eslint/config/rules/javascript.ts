@@ -1,10 +1,12 @@
+/**
+ * Правила для JavaScript
+ */
 import type { Linter } from 'eslint';
 
 export default <Linter.Config>{
-	files: ['**/*.{js,ts,jsx,tsx,cjs,mjs,vue}'],
 	rules: {
 		'arrow-body-style': ['error', 'as-needed'],
-		curly: 'error',
+		curly: ['error', 'all'],
 		'func-names': ['error', 'always'],
 		'no-undef': 'off',
 		'no-alert': 'error',
@@ -25,12 +27,7 @@ export default <Linter.Config>{
 				enforceConst: true,
 			},
 		],
-		'no-plusplus': [
-			'error',
-			{
-				allowForLoopAfterthoughts: true,
-			},
-		],
+		'no-plusplus': 'off',
 		'no-restricted-syntax': [
 			'error',
 			{
@@ -40,11 +37,13 @@ export default <Linter.Config>{
 			},
 			{
 				selector: 'LabeledStatement',
-				message: 'Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.',
+				message:
+					'Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.',
 			},
 			{
 				selector: 'WithStatement',
-				message: '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.',
+				message:
+					'`with` is disallowed in strict mode because it makes code impossible to predict and optimize.',
 			},
 		],
 		'no-unused-expressions': [

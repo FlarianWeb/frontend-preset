@@ -1,6 +1,7 @@
 import type { Linter } from 'eslint';
 import pluginVue from 'eslint-plugin-vue';
 import parserVue from 'vue-eslint-parser';
+import stylisticJs from '@stylistic/eslint-plugin';
 
 export default <Linter.Config>{
 	files: ['**/*.vue'],
@@ -9,6 +10,7 @@ export default <Linter.Config>{
 	},
 	plugins: {
 		vue: pluginVue,
+		'@stylistic': stylisticJs,
 	},
 	rules: {
 		'vue/no-required-prop-with-default': 'off',
@@ -22,6 +24,14 @@ export default <Linter.Config>{
 				closeBracket: 0,
 				alignAttributesVertically: true,
 				ignores: [],
+			},
+		],
+		'vue/script-indent': [
+			'warn',
+			'tab',
+			{
+				baseIndent: 1,
+				switchCase: 1,
 			},
 		],
 		'vue/max-attributes-per-line': [
@@ -59,5 +69,10 @@ export default <Linter.Config>{
 		],
 
 		indent: 'off',
+
+		/**
+		 * Stylistic override
+		 */
+		'@stylistic/indent': 'off',
 	},
 };

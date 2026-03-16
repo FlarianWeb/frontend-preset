@@ -30,7 +30,9 @@ async function checkESLint() {
 	for (const ruleName of Object.keys(activeRules)) {
 		const [severity] = [].concat(activeRules[ruleName]);
 
-		if (severity === 0 || severity === 'off') continue;
+		if (severity === 0 || severity === 'off') {
+			continue;
+		}
 
 		let rule;
 
@@ -63,7 +65,9 @@ async function checkESLint() {
 
 		for (const { rule, replacedBy, url } of deprecated) {
 			const replacement =
-				replacedBy.length > 0 ? ` ${DIM}→ replace with: ${replacedBy.join(', ')}${RESET}` : ` ${DIM}→ no replacement${RESET}`;
+				replacedBy.length > 0
+					? ` ${DIM}→ replace with: ${replacedBy.join(', ')}${RESET}`
+					: ` ${DIM}→ no replacement${RESET}`;
 			const link = url ? ` ${DIM}(${url})${RESET}` : '';
 
 			console.log(`  ${YELLOW}✖${RESET} ${rule}${replacement}${link}`);
@@ -85,7 +89,9 @@ async function checkStylelintConfig(label, stylelintConfig) {
 		const value = activeRules[ruleName];
 
 		// disabled rules
-		if (value === null || (Array.isArray(value) && value[0] === null)) continue;
+		if (value === null || (Array.isArray(value) && value[0] === null)) {
+			continue;
+		}
 
 		const pluginFn = pluginFunctions[ruleName];
 
@@ -123,7 +129,9 @@ async function checkStylelintConfig(label, stylelintConfig) {
 
 		for (const { rule, replacedBy } of deprecated) {
 			const replacement =
-				replacedBy.length > 0 ? ` ${DIM}→ replace with: ${replacedBy.join(', ')}${RESET}` : ` ${DIM}→ no replacement${RESET}`;
+				replacedBy.length > 0
+					? ` ${DIM}→ replace with: ${replacedBy.join(', ')}${RESET}`
+					: ` ${DIM}→ no replacement${RESET}`;
 
 			console.log(`  ${YELLOW}✖${RESET} ${rule}${replacement}`);
 		}
@@ -133,7 +141,9 @@ async function checkStylelintConfig(label, stylelintConfig) {
 		console.log(`  ${RED}${BOLD}${unknown.length} unknown/removed rule(s):${RESET}`);
 
 		for (const rule of unknown) {
-			console.log(`  ${RED}✖${RESET} ${rule} ${DIM}→ rule does not exist (possibly renamed or removed)${RESET}`);
+			console.log(
+				`  ${RED}✖${RESET} ${rule} ${DIM}→ rule does not exist (possibly renamed or removed)${RESET}`,
+			);
 		}
 	}
 
@@ -143,12 +153,20 @@ async function checkStylelintConfig(label, stylelintConfig) {
 async function checkStylelint() {
 	const scssConfig = {
 		plugins: ['stylelint-order', 'stylelint-scss'],
-		extends: ['stylelint-config-standard', 'stylelint-config-standard-scss', 'stylelint-config-recommended-vue'],
+		extends: [
+			'stylelint-config-standard',
+			'stylelint-config-standard-scss',
+			'stylelint-config-recommended-vue',
+		],
 	};
 
 	const lessConfig = {
 		plugins: ['stylelint-order', 'stylelint-less'],
-		extends: ['stylelint-config-standard', 'stylelint-config-standard-less', 'stylelint-config-recommended-vue'],
+		extends: [
+			'stylelint-config-standard',
+			'stylelint-config-standard-less',
+			'stylelint-config-recommended-vue',
+		],
 	};
 
 	const scssIssues = await checkStylelintConfig('SCSS', scssConfig);
@@ -168,7 +186,9 @@ async function main() {
 
 	console.log(`\n${total === 0 ? GREEN : RED}${BOLD}Total issues: ${total}${RESET}\n`);
 
-	if (total > 0) process.exit(1);
+	if (total > 0) {
+		process.exit(1);
+	}
 }
 
 main().catch(err => {

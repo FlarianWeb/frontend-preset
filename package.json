@@ -83,7 +83,6 @@
 		"@types/eslint": "9.6.1",
 		"@types/node": "25.5.0",
 		"eslint": "10.0.3",
-		"eslint-config-prettier": "10.1.8",
 		"eslint-plugin-jsonc": "3.1.2",
 		"eslint-plugin-prettier": "5.5.5",
 		"eslint-plugin-react": "7.37.5",
@@ -111,7 +110,6 @@
 		"@prettier/plugin-pug": ">=3.3.0",
 		"@stylistic/eslint-plugin": ">=5.0.0",
 		"eslint": ">=9.30.0",
-		"eslint-config-prettier": ">=10.1.0",
 		"eslint-plugin-jsonc": ">=3.0.0",
 		"eslint-plugin-prettier": ">=5.4.0",
 		"eslint-plugin-react": ">=7.37.0",
@@ -142,9 +140,6 @@
 			"optional": true
 		},
 		"eslint": {
-			"optional": true
-		},
-		"eslint-config-prettier": {
 			"optional": true
 		},
 		"eslint-plugin-jsonc": {

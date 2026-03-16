@@ -1,5 +1,7 @@
 {
-	/* Language settings */
+	/**
+	 * Language settings
+	 */
 	"[css]": {
 		"editor.defaultFormatter": "stylelint.vscode-stylelint",
 		"editor.formatOnSave": true
@@ -37,7 +39,14 @@
 	/* Spell */
 	"cSpell.words": ["conventionalcommits", "flarian", "flexsearch", "histoire", "npmjs"],
 
-	"conventionalCommits.scopes": ["Update dependencies", "build", "release", "EsLint", "Prettier", "Stylelint"],
+	"conventionalCommits.scopes": [
+		"Update dependencies",
+		"build",
+		"release",
+		"EsLint",
+		"Prettier",
+		"Stylelint"
+	],
 
 	/* Editor */
 	"editor.accessibilitySupport": "off",
@@ -102,6 +111,7 @@
 
 	/* Vue */
 	"vue.inlayHints.optionsWrapper": false,
+
 	/* Workbench */
 	"workbench.iconTheme": "vscode-icons"
 }

@@ -1,7 +1,7 @@
 import type { Options } from 'prettier';
 
 export const baseConfig: Options = {
-	printWidth: 140,
+	printWidth: 100,
 	tabWidth: 4,
 	useTabs: true,
 	semi: true,

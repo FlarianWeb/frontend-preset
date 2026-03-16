@@ -6,14 +6,15 @@ export default defineBuildConfig({
 
 		/** EsLint rules */
 		'src/eslint/index',
-		'src/eslint/config/all',
-		'src/eslint/config/base',
+		'src/eslint/config/javascript',
+		'src/eslint/config/typescript',
+		'src/eslint/config/stylistic',
+		'src/eslint/config/jsx',
 		'src/eslint/config/imports',
 		'src/eslint/config/json',
-		'src/eslint/config/jsx',
-		'src/eslint/config/prettier',
-		'src/eslint/config/react',
 		'src/eslint/config/vue',
+		'src/eslint/config/react',
+		'src/eslint/config/prettier',
 
 		/** Prettier rules */
 		'src/prettier/index',

@@ -5,6 +5,11 @@ export default <Linter.Config>{
 	files: ['**/*.json'],
 	plugins: { pluginJsonc },
 	rules: {
+		// @stylistic правила предназначены для JS/TS и некорректно работают с JSONC парсером
+		'@stylistic/lines-around-comment': 'off',
+		'@stylistic/no-multiple-empty-lines': 'off',
+		'@stylistic/padded-blocks': 'off',
+
 		'jsonc/indent': ['warn', 'tab'],
 		'jsonc/no-comments': 'off',
 		'jsonc/comma-dangle': ['error', 'never'],
