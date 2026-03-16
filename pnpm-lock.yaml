@@ -38,9 +38,6 @@ importers:
       eslint:
         specifier: 10.0.3
         version: 10.0.3(jiti@2.6.1)
-      eslint-config-prettier:
-        specifier: 10.1.8
-        version: 10.1.8(eslint@10.0.3(jiti@2.6.1))
       eslint-plugin-jsonc:
         specifier: 3.1.2
         version: 3.1.2(eslint@10.0.3(jiti@2.6.1))
@@ -5050,6 +5047,7 @@ snapshots:
   eslint-config-prettier@10.1.8(eslint@10.0.3(jiti@2.6.1)):
     dependencies:
       eslint: 10.0.3(jiti@2.6.1)
+    optional: true
 
   eslint-json-compat-utils@0.2.3(eslint@10.0.3(jiti@2.6.1))(jsonc-eslint-parser@3.1.0):
     dependencies:
