@@ -1,176 +1,295 @@
-# frontend-preset
+# @flarian/frontend-preset
 
-## Поддерживаемые форматы:
-- .js
-- .jsx
-- .ts
-- .tsx
-- .json
-- .css
-- .less
-- .scss
-- .vue
-- .pug
-- .yml
-- .yaml
+Preset for ESLint, Prettier and Stylelint with flat config support.
 
-## Установка
+## Supported formats
+
+`.js` `.jsx` `.ts` `.tsx` `.json` `.jsonc` `.css` `.less` `.scss` `.vue` `.pug` `.yml` `.yaml`
+
+---
+
+## ESLint
+
+### JavaScript
+
 ```sh
-pnpm add @flarian/frontend-preset eslint prettier stylelint -D
+pnpm add -D eslint @eslint/js globals @flarian/frontend-preset
 ```
 
-## tsconfig.json
-```json
-{
-	"compilerOptions": {
-		"target": "esnext",
-		"module": "esnext",
-		"moduleResolution": "node",
-		"esModuleInterop": true,
-		"strict": true,
-		"strictNullChecks": true,
-		"noUnusedLocals": true,
-		"jsx": "preserve",
-		"resolveJsonModule": true,
-		"outDir": "dist",
-		"baseUrl": ".",
-		"declaration": true,
-		"declarationMap": true,
-	},
-}
-```
-
-## Для поддержки PUG синтаксиса в .vue:
-```sh
-pnpm add pug @vue/language-plugin-pug -D
-```
-Добавить в tsconfig.json:
-```json
-{
-	"vueCompilerOptions": {
-		"plugins": ["@vue/language-plugin-pug"]
-	},
-}
-```
-
-## Расширения vsCode:
-- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-- [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
-- [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
-
-## Примеры конфигураций:
-### Настройка ESLint
-#### eslint.config.ts
 ```ts
-import { all } from '@flarian/frontend-preset/eslint';
+// eslint.config.ts
+import { javascript } from '@flarian/frontend-preset/eslint';
 
 export default [
-	...all.withApp,
-
-	{
-		ignores: ['dist/**', 'node_modules/**', 'pnpm-lock.yaml'],
-	},
+	...javascript,
+	{ ignores: ['dist/**', 'node_modules/**'] },
 ];
 ```
 
 ---
 
-### Настройка prettier
-- Если вы не используете синтаксис pug в вашем vue проекте то вы можете пропустить этот шаг.
-- Если вы используете Pug в Vue проекте, то необходимо добавить зависимость @prettier/plugin-pug в ваш проект и определить конфигурацию prettier.config.mjs:
+### TypeScript
+
+Requires JavaScript config.
+
 ```sh
-pnpm add @prettier/plugin-pug -D
+pnpm add -D typescript-eslint
 ```
 
-#### prettier.config.mjs
-```js
-import { all } from '@flarian/frontend-preset/prettier';
+```ts
+// eslint.config.ts
+import { javascript, typescript } from '@flarian/frontend-preset/eslint';
 
-export default all;
+export default [
+	...javascript,
+	...typescript,
+	{ ignores: ['dist/**', 'node_modules/**'] },
+];
 ```
 
 ---
 
-### Настройка stylelint
-В зависимости от используемого препроцессора (LESS или SCSS), необходимо установить дополнительные зависимости:
+### Stylistic
 
-#### Для LESS:
+Formatting rules via `@stylistic/eslint-plugin`. Use together with Prettier or standalone.
+
 ```sh
-pnpm add stylelint-order stylelint-less stylelint-config-standard stylelint-config-standard-less stylelint-config-recommended-vue -D
+pnpm add -D @stylistic/eslint-plugin
 ```
 
-#### Для SCSS:
-```sh
-pnpm add stylelint-order stylelint-scss stylelint-config-standard stylelint-config-standard-scss stylelint-config-recommended-vue -D
+```ts
+// eslint.config.ts
+import { javascript, typescript, stylistic } from '@flarian/frontend-preset/eslint';
+
+export default [
+	...javascript,
+	...typescript,
+	...stylistic,
+	{ ignores: ['dist/**', 'node_modules/**'] },
+];
 ```
 
-#### stylelint.config.mjs
-```js
-import { all } from '@flarian/frontend-preset/stylelint';
+---
+
+### Imports
+
+Sorts and validates imports via `eslint-plugin-simple-import-sort`.
+
+```sh
+pnpm add -D eslint-plugin-simple-import-sort
+```
+
+```ts
+// eslint.config.ts
+import { javascript, typescript, imports } from '@flarian/frontend-preset/eslint';
+
+export default [
+	...javascript,
+	...typescript,
+	...imports,
+	{ ignores: ['dist/**', 'node_modules/**'] },
+];
+```
+
+---
+
+### JSON / package.json / tsconfig.json
+
+```sh
+pnpm add -D eslint-plugin-jsonc
+```
+
+```ts
+// eslint.config.ts
+import { json, packageJson, tsconfigJson } from '@flarian/frontend-preset/eslint';
+
+export default [
+	...json,
+	...packageJson,
+	...tsconfigJson,
+	{ ignores: ['dist/**', 'node_modules/**'] },
+];
+```
+
+---
+
+### JSX
+
+Stylistic rules for JSX. Requires `stylistic`.
+
+No additional dependencies required.
+
+```ts
+// eslint.config.ts
+import { javascript, stylistic, jsx } from '@flarian/frontend-preset/eslint';
+
+export default [
+	...javascript,
+	...stylistic,
+	...jsx,
+	{ ignores: ['dist/**', 'node_modules/**'] },
+];
+```
+
+---
+
+### Vue
+
+```sh
+pnpm add -D eslint-plugin-vue vue-eslint-parser
+```
+
+```ts
+// eslint.config.ts
+import { javascript, typescript, stylistic, imports, vue } from '@flarian/frontend-preset/eslint';
+
+export default [
+	...javascript,
+	...typescript,
+	...stylistic,
+	...imports,
+	...vue,
+	{ ignores: ['dist/**', 'node_modules/**'] },
+];
+```
+
+---
+
+### React
+
+```sh
+pnpm add -D eslint-plugin-react eslint-plugin-react-hooks
+```
+
+```ts
+// eslint.config.ts
+import { javascript, typescript, stylistic, imports, jsx, react } from '@flarian/frontend-preset/eslint';
+
+export default [
+	...javascript,
+	...typescript,
+	...stylistic,
+	...imports,
+	...jsx,
+	...react,
+	{ ignores: ['dist/**', 'node_modules/**'] },
+];
+```
+
+---
+
+### Prettier (ESLint integration)
+
+Runs Prettier as an ESLint rule. Automatically applies Vue, Pug and YAML overrides for `.vue` files.
+
+```sh
+pnpm add -D prettier eslint-plugin-prettier
+```
+
+For Pug support in `.vue` files:
+
+```sh
+pnpm add -D @prettier/plugin-pug
+```
+
+```ts
+// eslint.config.ts
+import { javascript, typescript, stylistic, imports, vue, prettier } from '@flarian/frontend-preset/eslint';
+
+export default [
+	...javascript,
+	...typescript,
+	...stylistic,
+	...imports,
+	...vue,
+	...prettier,  // must be last
+	{ ignores: ['dist/**', 'node_modules/**'] },
+];
+```
+
+---
+
+## Prettier
+
+```sh
+pnpm add -D prettier
+```
+
+```ts
+// prettier.config.ts
+import { baseConfig } from '@flarian/frontend-preset/prettier';
+
+export default baseConfig;
+```
+
+For Vue + Pug projects:
+
+```sh
+pnpm add -D @prettier/plugin-pug
+```
+
+```ts
+// prettier.config.ts
+import { baseConfig, pugConfig, vueConfig, ymlConfig } from '@flarian/frontend-preset/prettier';
 
 export default {
-	extends: [all.less, all.scss],
+	...baseConfig,
+	...vueConfig,
+	...ymlConfig,
+	...pugConfig,
 };
 ```
 
-**Примечание:** Используйте только нужные пресеты в `extends`. Например, если работаете только с LESS:
+---
+
+## Stylelint
+
+### LESS
+
+```sh
+pnpm add -D stylelint stylelint-order stylelint-less stylelint-config-standard stylelint-config-standard-less stylelint-config-recommended-vue
+```
+
 ```js
-export default {
-	extends: [all.less],
-};
+// stylelint.config.mjs
+import { less } from '@flarian/frontend-preset/stylelint';
+
+export default { extends: [less] };
 ```
 
-## .editorconfig
-```ini
-root = true
+### SCSS
 
-# Блок настроек для всех типов файлов
-[*]
-charset = utf-8
-end_of_line = lf
-indent_size = 4
-indent_style = tab
-insert_final_newline = true
-trim_trailing_whitespace = true
-
-# Блок настроек для Markdown
-[*.{md,markdown}]
-trim_trailing_whitespace = false
-
-# Блок настроек для файлов JavaScript и TypeScript
-[*.{js,ts,jsx,tsx,cjs,mjs,vue}]
-indent_style = tab
-indent_size = 4
-
-# Блок настроек для файлов css
-[*.{css,less}]
-indent_style = tab
-indent_size = 4
-
-# Блок настроек для файлов JSON
-[*.{json}]
-indent_style = tab
-indent_size = 4
-
-# Блок настроек для YAML
-[*.{yaml,yml}]
-indent_style = space
-indent_size = 2
+```sh
+pnpm add -D stylelint stylelint-order stylelint-scss stylelint-config-standard stylelint-config-standard-scss stylelint-config-recommended-vue
 ```
 
-## Пример конфигурации для VSCode:
+```js
+// stylelint.config.mjs
+import { scss } from '@flarian/frontend-preset/stylelint';
+
+export default { extends: [scss] };
+```
+
+---
+
+## VSCode extensions
+
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
+- [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
+
+## VSCode settings
+
 ```json
 {
-	/* Language settings */
 	"[css]": {
 		"editor.defaultFormatter": "stylelint.vscode-stylelint",
 		"editor.formatOnSave": true
 	},
 	"[javascript]": {
 		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
-		"editor.formatOnSave": true,
-		"editor.suggest.insertMode": "replace"
+		"editor.formatOnSave": true
 	},
 	"[json]": {
 		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
@@ -196,25 +315,46 @@ indent_size = 2
 		"editor.defaultFormatter": "redhat.vscode-yaml",
 		"editor.formatOnSave": true
 	},
-
-	/* Editor */
-	"editor.accessibilitySupport": "off",
 	"editor.codeActionsOnSave": {
 		"source.fixAll.eslint": "explicit",
 		"source.fixAll.stylelint": "always"
 	},
-
-	/* ESLint */
 	"eslint.format.enable": true,
 	"eslint.validate": ["json", "jsonc", "javascript", "typescript", "vue", "yaml", "yml"],
-
-	/* JSON */
-	"json.format.enable": true,
-	"json.format.keepLines": false,
-	"json.validate.enable": false,
-
-	/* Stylelint */
 	"stylelint.packageManager": "pnpm",
-	"stylelint.validate": ["css", "less", "postcss", "scss", "vue", "sass"],
+	"stylelint.validate": ["css", "less", "postcss", "scss", "vue", "sass"]
 }
+```
+
+## .editorconfig
+
+```ini
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = tab
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{md,markdown}]
+trim_trailing_whitespace = false
+
+[*.{js,ts,jsx,tsx,cjs,mjs,vue}]
+indent_style = tab
+indent_size = 4
+
+[*.{css,less}]
+indent_style = tab
+indent_size = 4
+
+[*.{json}]
+indent_style = tab
+indent_size = 4
+
+[*.{yaml,yml}]
+indent_style = space
+indent_size = 2
 ```
