@@ -8,28 +8,31 @@ import esLintPrettierRules from './rules/prettier';
 
 export const createPrettierConfig: CreateConfig = ({ registerPlugins = true } = {}) => {
 	const config = {
-		plugins: { prettier: prettierPlugin },
+		plugins: { prettier: prettierPlugin, ...esLintPrettierRules.plugins },
 		rules: {
 			'prettier/prettier': ['warn', baseConfig],
+			...esLintPrettierRules.rules,
 		},
-		...esLintPrettierRules,
 	} as Config[number];
 
-    const vueOverride = {
-        files: ['**/*.vue'],
+	const vueOverride = {
+		files: ['**/*.vue'],
 		plugins: {
 			prettier: prettierPlugin,
 			vue: pluginVue,
 		},
-        rules: {
+		rules: {
 			'vue/script-indent': 'off',
-            'prettier/prettier': ['warn', { ...baseConfig, ...vueConfig, ...ymlConfig, ...pugConfig }],
-        },
-    } as Config[number];
+			'prettier/prettier': [
+				'warn',
+				{ ...baseConfig, ...vueConfig, ...ymlConfig, ...pugConfig },
+			],
+		},
+	} as Config[number];
 
 	return [
-        registerPlugins ? config : stripPlugins(config),
-        registerPlugins ? vueOverride : stripPlugins(vueOverride),
+		registerPlugins ? config : stripPlugins(config),
+		registerPlugins ? vueOverride : stripPlugins(vueOverride),
 	];
 };
 

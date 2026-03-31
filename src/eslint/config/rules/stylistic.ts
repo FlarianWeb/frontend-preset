@@ -367,7 +367,7 @@ export default <Linter.Config>{
 			{
 				max: 1,
 				maxBOF: 0,
-				maxEOF: 1,
+				maxEOF: 0,
 			},
 		],
 
@@ -423,7 +423,11 @@ export default <Linter.Config>{
 		 * Обеспечить единый стиль переноса строк для операторов
 		 * https://eslint.style/rules/default/operator-linebreak
 		 */
-		'@stylistic/operator-linebreak': ['warn', 'after', { overrides: { '?': 'before', ':': 'before', '|': 'before' } }],
+		'@stylistic/operator-linebreak': [
+			'warn',
+			'after',
+			{ overrides: { '?': 'before', ':': 'before', '|': 'before' } },
+		],
 
 		/**
 		 * Требовать или запрещать отступы внутри блоков
