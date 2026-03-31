@@ -1,3 +1,9 @@
+## [2.0.2](https://github.com/FlarianWeb/frontend-preset/compare/v2.0.1...v2.0.2) (2026-03-31)
+
+### Bug Fixes
+
+* **Prettier:** :bug: fix prettier and stylistic no-multiple-empty-lines rule ([6c783b9](https://github.com/FlarianWeb/frontend-preset/commit/6c783b900a6af0ee3189b76a5e2b8b94df5dd83e))
+
 ## [2.0.1](https://github.com/FlarianWeb/frontend-preset/compare/v2.0.0...v2.0.1) (2026-03-31)
 
 ### Bug Fixes
