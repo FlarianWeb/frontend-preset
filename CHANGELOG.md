@@ -1,3 +1,9 @@
+## [2.0.1](https://github.com/FlarianWeb/frontend-preset/compare/v2.0.0...v2.0.1) (2026-03-31)
+
+### Bug Fixes
+
+* **deps:** bump typescript-eslint to 8.58.0 for ESLint 10 compatibility ([#92](https://github.com/FlarianWeb/frontend-preset/issues/92)) ([d073ec0](https://github.com/FlarianWeb/frontend-preset/commit/d073ec047123641e358c3bf907aa0292879982ef))
+
 ## [2.0.0](https://github.com/FlarianWeb/frontend-preset/compare/v1.6.1...v2.0.0) (2026-03-16)
 
 ### ⚠ BREAKING CHANGES
