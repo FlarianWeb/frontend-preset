@@ -1,3 +1,9 @@
+## [2.0.4](https://github.com/FlarianWeb/frontend-preset/compare/v2.0.3...v2.0.4) (2026-04-24)
+
+### Bug Fixes
+
+* **EsLint:** :art: import sort ([d61f232](https://github.com/FlarianWeb/frontend-preset/commit/d61f23234334ab555b1f1cd2c260a9d2ce492824))
+
 ## [2.0.3](https://github.com/FlarianWeb/frontend-preset/compare/v2.0.2...v2.0.3) (2026-04-24)
 
 ### Bug Fixes
