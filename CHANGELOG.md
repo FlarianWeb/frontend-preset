@@ -1,3 +1,9 @@
+## [2.0.3](https://github.com/FlarianWeb/frontend-preset/compare/v2.0.2...v2.0.3) (2026-04-24)
+
+### Bug Fixes
+
+* **eslint:** improve import sort groups and vue template rule ([55326ab](https://github.com/FlarianWeb/frontend-preset/commit/55326ab07624c237678fe316022333654319671d))
+
 ## [2.0.2](https://github.com/FlarianWeb/frontend-preset/compare/v2.0.1...v2.0.2) (2026-03-31)
 
 ### Bug Fixes
