@@ -17,17 +17,17 @@ export default <Linter.Config>{
 					// 2. Внешние npm-пакеты (unscoped + @-scoped)
 					['^[^.~@]', '^@(?!/)'],
 
-					// 3. Parent-relative (../xxx)
-					['^\\.\\./'],
-
-					// 4. Same-dir relative (./xxx)
-					['^\\.(?!\\.)'],
-
-					// 5. @/  global path aliases
+					// 3. @/  global path aliases
 					['^@/'],
 
-					// 6. ~/  src path aliases
+					// 4. ~/  src path aliases
 					['^~/'],
+
+					// 5. Parent-relative (../xxx)
+					['^\\.\\./'],
+
+					// 6. Same-dir relative (./xxx)
+					['^\\.(?!\\.)'],
 
 					// 7. Vue SFC / JSX / TSX компоненты
 					['^.+\\.(vue|jsx|tsx)$'],
