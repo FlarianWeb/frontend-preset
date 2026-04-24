@@ -15,6 +15,7 @@ export default <Linter.Config>{
 	rules: {
 		'vue/no-required-prop-with-default': 'off',
 		'vue/multi-word-component-names': 'off',
+		'vue/singleline-html-element-content-newline': 'off',
 		'vue/html-indent': [
 			'warn',
 			'tab',

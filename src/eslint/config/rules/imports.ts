@@ -11,22 +11,37 @@ export default <Linter.Config>{
 			'warn',
 			{
 				groups: [
-					['^', '^@'],
+					// 1. Node.js built-ins
+					['^node:'],
 
-					['^\\./'],
+					// 2. Внешние npm-пакеты (unscoped + @-scoped)
+					['^[^.~@]', '^@(?!/)'],
 
-					['^.+\\.(.(js|ts))$'],
+					// 3. Parent-relative (../xxx)
+					['^\\.\\./'],
 
-					['^~'],
+					// 4. Same-dir relative (./xxx)
+					['^\\.(?!\\.)'],
 
-					['^.+\\.(.(vue|jsx|tsx))$'],
+					// 5. @/  global path aliases
+					['^@/'],
 
-					['^~/types'],
+					// 6. ~/  src path aliases
+					['^~/'],
 
-					['^.+\\.(module.(less|sass|scss|css))$'],
+					// 7. Vue SFC / JSX / TSX компоненты
+					['^.+\\.(vue|jsx|tsx)$'],
 
-					['^.+\\.(gif|png|svg|jpg)$'],
+					// 8. CSS modules
+					['^.+\\.module\\.(less|sass|scss|css|pcss)$'],
 
+					// 9. Стили без module (plain import)
+					['^.+\\.(less|sass|scss|css)$'],
+
+					// 10. Картинки и SVG
+					['^.+\\.(gif|png|svg|jpg|jpeg|webp)$'],
+
+					// 11. Виртуальные модули и side-effects
 					['^\\u0000'],
 				],
 			},
