@@ -1,3 +1,9 @@
+## [2.0.5](https://github.com/FlarianWeb/frontend-preset/compare/v2.0.4...v2.0.5) (2026-04-24)
+
+### Bug Fixes
+
+* **EsLint:** :bug: jsonc/sort-keys minKeys - 50 ([5c2745d](https://github.com/FlarianWeb/frontend-preset/commit/5c2745dbd5e3eb71711efa048c9d6adb3374ad66))
+
 ## [2.0.4](https://github.com/FlarianWeb/frontend-preset/compare/v2.0.3...v2.0.4) (2026-04-24)
 
 ### Bug Fixes
