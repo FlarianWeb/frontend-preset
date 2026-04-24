@@ -23,7 +23,7 @@ export default <Linter.Config>{
 			{
 				caseSensitive: true,
 				natural: false,
-				minKeys: 10,
+				minKeys: 50,
 			},
 		],
 	},
