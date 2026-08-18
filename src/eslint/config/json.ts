@@ -1,34 +1,27 @@
+import { jsonc as pluginJsonc } from '../plugins';
 import type { Config, CreateConfig } from '../types/config';
-import stripPlugins from '../utils/stripPlugins';
-import pluginJsonc from 'eslint-plugin-jsonc';
+import applyPluginPolicy from '../utils/applyPluginPolicy';
 
 import esLintJsonRules from './rules/json';
 import esLintJsonPackageRules from './rules/json.package';
 import esLintJsonTsconfigRules from './rules/json.tsconfig';
 
-export const createJsonConfig: CreateConfig = ({ registerPlugins = true } = {}) => {
-	const base = [
+export const createJsonConfig: CreateConfig = (options = {}) => [
+	...[
 		...pluginJsonc.configs['flat/base'],
 		...pluginJsonc.configs['flat/recommended-with-json'],
 		...pluginJsonc.configs['flat/recommended-with-json5'],
 		...pluginJsonc.configs['flat/recommended-with-jsonc'],
-	];
-
-	return [
-		...(registerPlugins ? base : base.map(stripPlugins)),
-		registerPlugins ? esLintJsonRules : stripPlugins(esLintJsonRules),
-	];
-};
-
-/**
- * Comment
- */
-export const createPackageJsonConfig: CreateConfig = ({ registerPlugins = true } = {}) => [
-	registerPlugins ? esLintJsonPackageRules : stripPlugins(esLintJsonPackageRules),
+	].map(config => applyPluginPolicy(config, options)),
+	applyPluginPolicy(esLintJsonRules, options),
 ];
 
-export const createTsconfigJsonConfig: CreateConfig = ({ registerPlugins = true } = {}) => [
-	registerPlugins ? esLintJsonTsconfigRules : stripPlugins(esLintJsonTsconfigRules),
+export const createPackageJsonConfig: CreateConfig = (options = {}) => [
+	applyPluginPolicy(esLintJsonPackageRules, options),
+];
+
+export const createTsconfigJsonConfig: CreateConfig = (options = {}) => [
+	applyPluginPolicy(esLintJsonTsconfigRules, options),
 ];
 
 export const json: Config = createJsonConfig();

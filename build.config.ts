@@ -6,11 +6,13 @@ export default defineBuildConfig({
 
 		/** EsLint rules */
 		'src/eslint/index',
+		'src/eslint/preset',
+		'src/eslint/plugins',
 		'src/eslint/config/javascript',
 		'src/eslint/config/typescript',
 		'src/eslint/config/stylistic',
 		'src/eslint/config/jsx',
-		'src/eslint/config/imports',
+		'src/eslint/config/perfectionist',
 		'src/eslint/config/json',
 		'src/eslint/config/vue',
 		'src/eslint/config/react',
@@ -27,6 +29,9 @@ export default defineBuildConfig({
 		/** Stylelint rules */
 		'src/stylelint/index',
 		'src/stylelint/config/all',
+		'src/stylelint/config/shared',
+		'src/stylelint/config/css',
+		'src/stylelint/config/pcss',
 		'src/stylelint/config/less',
 		'src/stylelint/config/scss',
 	],

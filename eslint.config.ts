@@ -1,27 +1,12 @@
-import type { Linter } from 'eslint';
+import preset from './src/eslint';
 
-import {
-	imports,
-	javascript,
-	json,
-	jsx,
-	packageJson,
-	prettier,
-	stylistic,
-	typescript,
-} from './src/eslint';
+export default preset({
+	// В самом пресете нет ни фреймворка, ни JSX — автоопределение по
+	// зависимостям выключено намеренно, чтобы конфиг не менялся от того,
+	// что появилось в devDependencies.
+	jsx: false,
+	react: false,
+	vue: false,
 
-export default <Linter.Config[]>[
-	...javascript,
-	...typescript,
-	...stylistic,
-	...jsx,
-	...imports,
-	...json,
-	...packageJson,
-	...prettier,
-
-	{
-		ignores: ['dist/**', 'node_modules/**', 'pnpm-lock.yaml'],
-	},
-];
+	ignores: ['pnpm-lock.yaml'],
+});

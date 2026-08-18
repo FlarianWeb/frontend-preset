@@ -1,7 +1,7 @@
+import stylisticJs from '@stylistic/eslint-plugin';
 import type { Linter } from 'eslint';
 import pluginVue from 'eslint-plugin-vue';
 import parserVue from 'vue-eslint-parser';
-import stylisticJs from '@stylistic/eslint-plugin';
 
 export default <Linter.Config>{
 	files: ['**/*.vue'],

@@ -1,19 +1,11 @@
 import { type Config } from 'stylelint';
 
-import baseRules from './rules/base';
-import orderRules from './rules/order';
-import orderGroupsRules from './rules/order-groups';
+import { createConfig } from './shared';
 
-export const lessConfig: Config = {
-	plugins: ['stylelint-order', 'stylelint-less'],
-	extends: [
-		'stylelint-config-standard',
-		'stylelint-config-standard-less',
-		'stylelint-config-recommended-vue',
-	],
-	rules: {
-		...baseRules,
-		...orderRules,
-		...orderGroupsRules,
-	},
-};
+/** Less. */
+export const lessConfig: Config = createConfig({
+	plugins: ['stylelint-less'],
+	extend: ['stylelint-config-standard-less'],
+});
+
+export default lessConfig;

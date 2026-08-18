@@ -81,7 +81,10 @@ async function checkESLint() {
 
 async function checkStylelintConfig(label, stylelintConfig) {
 	const resolved = await stylelint.resolveConfig('./dummy.css', { config: stylelintConfig });
-	const { rules: activeRules = {}, pluginFunctions = {} } = resolved;
+	const { rules: activeRules = {} } = resolved;
+	// Stylelint отдаёт правила плагинов в приватном поле; без него правила
+	// вроде less/no-duplicate-variables считаются несуществующими.
+	const pluginFunctions = resolved._pluginFunctions ?? resolved.pluginFunctions ?? {};
 	const deprecated = [];
 	const unknown = [];
 
@@ -142,7 +145,7 @@ async function checkStylelintConfig(label, stylelintConfig) {
 
 		for (const rule of unknown) {
 			console.log(
-				`  ${RED}✖${RESET} ${rule} ${DIM}→ rule does not exist (possibly renamed or removed)${RESET}`,
+				`  ${RED}✖${RESET} ${rule} ${DIM}→ rule does not exist (possibly renamed or removed)${RESET}`
 			);
 		}
 	}
@@ -151,28 +154,27 @@ async function checkStylelintConfig(label, stylelintConfig) {
 }
 
 async function checkStylelint() {
-	const scssConfig = {
-		plugins: ['stylelint-order', 'stylelint-scss'],
-		extends: [
-			'stylelint-config-standard',
-			'stylelint-config-standard-scss',
-			'stylelint-config-recommended-vue',
-		],
+	const dialects = {
+		CSS: {},
+		PCSS: {},
+		LESS: { extends: ['stylelint-config-standard-less'], plugins: ['stylelint-less'] },
+		SCSS: { extends: ['stylelint-config-standard-scss'], plugins: ['stylelint-scss'] },
 	};
 
-	const lessConfig = {
-		plugins: ['stylelint-order', 'stylelint-less'],
-		extends: [
-			'stylelint-config-standard',
-			'stylelint-config-standard-less',
-			'stylelint-config-recommended-vue',
-		],
-	};
+	let total = 0;
 
-	const scssIssues = await checkStylelintConfig('SCSS', scssConfig);
-	const lessIssues = await checkStylelintConfig('LESS', lessConfig);
+	for (const [label, extra] of Object.entries(dialects)) {
+		total += await checkStylelintConfig(label, {
+			extends: [
+				'stylelint-config-standard',
+				...(extra.extends ?? []),
+				'stylelint-config-recommended-vue',
+			],
+			plugins: ['stylelint-order', ...(extra.plugins ?? [])],
+		});
+	}
 
-	return scssIssues + lessIssues;
+	return total;
 }
 
 // ─── Main ─────────────────────────────────────────────────────────────────────

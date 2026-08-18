@@ -1,16 +1,29 @@
-export { javascript, createJavascriptConfig } from './config/javascript';
-export { typescript, createTypescriptConfig } from './config/typescript';
-export { stylistic, createStylisticConfig } from './config/stylistic';
-export { jsx, createJsxConfig } from './config/jsx';
-export { imports, createImportsConfig } from './config/imports';
+export { createJavascriptConfig, javascript } from './config/javascript';
+
 export {
-	json,
 	createJsonConfig,
-	packageJson,
 	createPackageJsonConfig,
-	tsconfigJson,
 	createTsconfigJsonConfig,
+	json,
+	packageJson,
+	tsconfigJson,
 } from './config/json';
-export { vue, createVueConfig } from './config/vue';
-export { react, createReactConfig } from './config/react';
-export { prettier, createPrettierConfig } from './config/prettier';
+export { createJsxConfig, jsx } from './config/jsx';
+export { createPerfectionistConfig, perfectionistConfig } from './config/perfectionist';
+export { createPrettierConfig, prettier } from './config/prettier';
+export { createReactConfig, react } from './config/react';
+export { createStylisticConfig, stylistic } from './config/stylistic';
+export { createTypescriptConfig, typescript } from './config/typescript';
+export { createVueConfig, vue } from './config/vue';
+// Инстансы плагинов — чтобы соседний конфиг мог переиспользовать те же
+// объекты и не поймать «Cannot redefine plugin».
+export * as plugins from './plugins';
+
+import { preset, type PresetOptions, type Toggle } from './preset';
+
+export { preset };
+export type { PresetOptions, Toggle };
+
+export default preset;
+
+export type { Config, CreateConfig, CreateConfigOptions } from './types/config';

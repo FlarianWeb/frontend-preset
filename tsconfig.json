@@ -2,14 +2,14 @@
 	"compilerOptions": {
 		"declaration": true,
 		"emitDeclarationOnly": false,
-		"esModuleInterop": true,
+		"target": "ESNext",
 		"module": "ESNext",
 		"moduleResolution": "bundler",
-		"outDir": "./dist",
+		"esModuleInterop": true,
 		"rootDir": "./src",
 		"skipLibCheck": true,
 		"strict": true,
-		"target": "ESNext"
+		"outDir": "./dist"
 	},
 	"include": ["src/**/*"],
 	"exclude": ["node_modules", "dist"]

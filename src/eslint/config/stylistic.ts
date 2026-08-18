@@ -1,10 +1,10 @@
 import type { Config, CreateConfig } from '../types/config';
-import stripPlugins from '../utils/stripPlugins';
+import applyPluginPolicy from '../utils/applyPluginPolicy';
 
 import esLintStylisticRules from './rules/stylistic';
 
-export const createStylisticConfig: CreateConfig = ({ registerPlugins = true } = {}) => [
-	registerPlugins ? esLintStylisticRules : stripPlugins(esLintStylisticRules),
+export const createStylisticConfig: CreateConfig = (options = {}) => [
+	applyPluginPolicy(esLintStylisticRules, options),
 ];
 
 export const stylistic: Config = createStylisticConfig();

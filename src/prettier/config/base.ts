@@ -7,7 +7,6 @@ export const baseConfig: Options = {
 	semi: true,
 	singleQuote: true,
 	bracketSpacing: true,
-	jsxBracketSameLine: false,
 	embeddedLanguageFormatting: 'auto',
 	trailingComma: 'es5',
 	arrowParens: 'avoid',

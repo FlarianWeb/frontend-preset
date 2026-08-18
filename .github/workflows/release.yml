@@ -6,6 +6,14 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      # Публикация в npm идёт через доверенный выпуск: workflow получает
+      # OIDC-токен и меняет его в реестре на короткоживущий ключ. Долгий
+      # NPM_TOKEN в секретах при этом не нужен.
+      id-token: write
+      contents: write
+      issues: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -27,6 +35,12 @@ jobs:
       - name: Install pnpm
         if: ${{ env.DO_RELEASE == 'true' }}
         run: npm install -g pnpm
+
+      # Доверенный выпуск требует npm не ниже 11.5.1 — версия из образа
+      # обычно старее.
+      - name: Update npm
+        if: ${{ env.DO_RELEASE == 'true' }}
+        run: npm install -g npm@latest
       - name: Install dependencies
         if: ${{ env.DO_RELEASE == 'true' }}
         run: pnpm install
@@ -42,5 +56,4 @@ jobs:
         if: ${{ env.DO_RELEASE == 'true' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
