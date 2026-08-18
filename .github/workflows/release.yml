@@ -7,9 +7,8 @@ jobs:
   release:
     runs-on: ubuntu-latest
     permissions:
-      # Публикация в npm идёт через доверенный выпуск: workflow получает
-      # OIDC-токен и меняет его в реестре на короткоживущий ключ. Долгий
-      # NPM_TOKEN в секретах при этом не нужен.
+      # Нужно для доверенного выпуска: workflow получает OIDC-токен и меняет
+      # его в реестре на короткоживущий ключ.
       id-token: write
       contents: write
       issues: write
@@ -56,4 +55,9 @@ jobs:
         if: ${{ env.DO_RELEASE == 'true' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Запасной путь. semantic-release сначала пробует доверенный
+          # выпуск и к токену обращается, только если обмен OIDC не удался:
+          # пока доверенный издатель на npmjs.com не настроен, публикация
+          # держится на этом токене, после настройки переключится сама.
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
