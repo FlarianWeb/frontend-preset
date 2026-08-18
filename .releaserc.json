@@ -1,5 +1,7 @@
 {
-	"branches": ["master"],
+	"branches": [
+		"master"
+	],
 	"repositoryUrl": "https://github.com/FlarianWeb/frontend-preset.git",
 	"plugins": [
 		[
@@ -25,7 +27,10 @@
 					}
 				],
 				"parserOpts": {
-					"noteKeywords": ["BREAKING CHANGE", "BREAKING-CHANGE"]
+					"noteKeywords": [
+						"BREAKING CHANGE",
+						"BREAKING-CHANGE"
+					]
 				}
 			}
 		],
@@ -45,14 +50,18 @@
 		[
 			"@semantic-release/git",
 			{
-				"assets": ["package.json", "CHANGELOG.md"],
+				"assets": [
+					"package.json",
+					"CHANGELOG.md"
+				],
 				"message": "chore(release): ${nextRelease.version}\n\n${nextRelease.notes}"
 			}
 		],
 		[
 			"@semantic-release/github",
 			{
-				"releaseNameTemplate": "Flarian frontend-preset v${nextRelease.version}"
+				"releaseNameTemplate": "Flarian frontend-preset v${nextRelease.version}",
+				"labels": false
 			}
 		]
 	]
