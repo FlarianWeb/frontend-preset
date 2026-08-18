@@ -1,274 +1,129 @@
 # @flarian/frontend-preset
 
-Preset for ESLint, Prettier and Stylelint with flat config support.
+ESLint 10, Prettier and Stylelint in a single package. Plugins ship with the
+preset — you install four packages, not twenty.
 
 ## Supported formats
 
-`.js` `.jsx` `.ts` `.tsx` `.json` `.jsonc` `.css` `.less` `.scss` `.vue` `.pug` `.yml` `.yaml`
+`.js` `.jsx` `.ts` `.tsx` `.json` `.jsonc` `.css` `.pcss` `.less` `.scss`
+`.vue` `.pug` `.yml` `.yaml`
+
+---
+
+## Install
+
+```sh
+pnpm add -D @flarian/frontend-preset eslint prettier stylelint
+```
+
+Every plugin — `typescript-eslint`, `eslint-plugin-vue`,
+`eslint-plugin-perfectionist`, the Stylelint configs and the rest — is a
+dependency of the preset. ESLint, Prettier and Stylelint stay peers: the
+project must run a single copy of each.
 
 ---
 
 ## ESLint
 
-### JavaScript
-
-```sh
-pnpm add -D eslint @eslint/js globals @flarian/frontend-preset
-```
+One import, one call:
 
 ```ts
 // eslint.config.ts
-import { javascript } from '@flarian/frontend-preset/eslint';
+import preset from '@flarian/frontend-preset/eslint';
 
-export default [
-	...javascript,
-	{ ignores: ['dist/**', 'node_modules/**'] },
-];
+export default preset();
 ```
 
----
+Vue and React switch on by themselves when the matching package is in your
+`package.json`. Everything else is on by default.
 
-### TypeScript
+### Options
 
-Requires JavaScript config.
-
-```sh
-pnpm add -D typescript-eslint
-```
+| Option | Default | Meaning |
+|---|---|---|
+| `javascript` | `true` | Core JavaScript rules |
+| `typescript` | `true` | TypeScript rules |
+| `stylistic` | `true` | Formatting Prettier does not cover |
+| `perfectionist` | `true` | Import and member ordering |
+| `json` | `true` | JSON, `package.json`, `tsconfig.json` |
+| `vue` | `'auto'` | Detected from dependencies |
+| `react` | `'auto'` | Detected from dependencies |
+| `jsx` | `'auto'` | Follows React |
+| `prettier` | `true` | Prettier as the formatter |
+| `externalPlugins` | — | Plugin keys another preset already registered |
+| `registerPlugins` | `true` | Register nothing at all |
+| `ignores` | `[]` | Added to the built-in ignore list |
 
 ```ts
-// eslint.config.ts
-import { javascript, typescript } from '@flarian/frontend-preset/eslint';
-
-export default [
-	...javascript,
-	...typescript,
-	{ ignores: ['dist/**', 'node_modules/**'] },
-];
+export default preset({
+	react: false,
+	vue: true,
+	ignores: ['legacy/**'],
+});
 ```
 
----
-
-### Stylistic
-
-Formatting rules via `@stylistic/eslint-plugin`. Use together with Prettier or standalone.
-
-```sh
-pnpm add -D @stylistic/eslint-plugin
-```
+The call returns a promise. ESLint accepts that directly, and so does
+`FlatConfigComposer`, so composing with another preset works as usual:
 
 ```ts
-// eslint.config.ts
-import { javascript, typescript, stylistic } from '@flarian/frontend-preset/eslint';
+// Nuxt brings its own copies of @typescript-eslint and vue. ESLint compares
+// plugins by object identity and rejects a second registration under the
+// same key, so those two are handed over — the rest the preset still
+// registers itself.
+import preset from '@flarian/frontend-preset/eslint';
 
-export default [
-	...javascript,
-	...typescript,
-	...stylistic,
-	{ ignores: ['dist/**', 'node_modules/**'] },
-];
+import withNuxt from './.nuxt/eslint.config.mjs';
+
+export default withNuxt(
+	await preset({ externalPlugins: ['@typescript-eslint', 'vue'] })
+);
 ```
 
----
+### Individual configs
 
-### Imports
-
-Sorts and validates imports via `eslint-plugin-simple-import-sort`.
-
-```sh
-pnpm add -D eslint-plugin-simple-import-sort
-```
+The pieces stay importable when you want to assemble the chain yourself:
 
 ```ts
-// eslint.config.ts
-import { javascript, typescript, imports } from '@flarian/frontend-preset/eslint';
-
-export default [
-	...javascript,
-	...typescript,
-	...imports,
-	{ ignores: ['dist/**', 'node_modules/**'] },
-];
+import { createTypescriptConfig, createVueConfig } from '@flarian/frontend-preset/eslint';
 ```
 
----
-
-### JSON / package.json / tsconfig.json
-
-```sh
-pnpm add -D eslint-plugin-jsonc
-```
+Plugin instances are exported too, so a neighbouring config can reuse the
+same objects instead of registering its own:
 
 ```ts
-// eslint.config.ts
-import { json, packageJson, tsconfigJson } from '@flarian/frontend-preset/eslint';
-
-export default [
-	...json,
-	...packageJson,
-	...tsconfigJson,
-	{ ignores: ['dist/**', 'node_modules/**'] },
-];
-```
-
----
-
-### JSX
-
-Stylistic rules for JSX. Requires `stylistic`.
-
-No additional dependencies required.
-
-```ts
-// eslint.config.ts
-import { javascript, stylistic, jsx } from '@flarian/frontend-preset/eslint';
-
-export default [
-	...javascript,
-	...stylistic,
-	...jsx,
-	{ ignores: ['dist/**', 'node_modules/**'] },
-];
-```
-
----
-
-### Vue
-
-```sh
-pnpm add -D eslint-plugin-vue vue-eslint-parser
-```
-
-```ts
-// eslint.config.ts
-import { javascript, typescript, stylistic, imports, vue } from '@flarian/frontend-preset/eslint';
-
-export default [
-	...javascript,
-	...typescript,
-	...stylistic,
-	...imports,
-	...vue,
-	{ ignores: ['dist/**', 'node_modules/**'] },
-];
-```
-
----
-
-### React
-
-```sh
-pnpm add -D eslint-plugin-react eslint-plugin-react-hooks
-```
-
-```ts
-// eslint.config.ts
-import { javascript, typescript, stylistic, imports, jsx, react } from '@flarian/frontend-preset/eslint';
-
-export default [
-	...javascript,
-	...typescript,
-	...stylistic,
-	...imports,
-	...jsx,
-	...react,
-	{ ignores: ['dist/**', 'node_modules/**'] },
-];
-```
-
----
-
-### Prettier (ESLint integration)
-
-Runs Prettier as an ESLint rule. Automatically applies Vue, Pug and YAML overrides for `.vue` files.
-
-```sh
-pnpm add -D prettier eslint-plugin-prettier
-```
-
-For Pug support in `.vue` files:
-
-```sh
-pnpm add -D @prettier/plugin-pug
-```
-
-```ts
-// eslint.config.ts
-import { javascript, typescript, stylistic, imports, vue, prettier } from '@flarian/frontend-preset/eslint';
-
-export default [
-	...javascript,
-	...typescript,
-	...stylistic,
-	...imports,
-	...vue,
-	...prettier,  // must be last
-	{ ignores: ['dist/**', 'node_modules/**'] },
-];
+import { plugins } from '@flarian/frontend-preset/eslint';
 ```
 
 ---
 
 ## Prettier
 
-```sh
-pnpm add -D prettier
+```js
+// prettier.config.mjs
+import { all } from '@flarian/frontend-preset/prettier';
+
+export default all;
 ```
 
-```ts
-// prettier.config.ts
-import { baseConfig } from '@flarian/frontend-preset/prettier';
-
-export default baseConfig;
-```
-
-For Vue + Pug projects:
-
-```sh
-pnpm add -D @prettier/plugin-pug
-```
-
-```ts
-// prettier.config.ts
-import { baseConfig, pugConfig, vueConfig, ymlConfig } from '@flarian/frontend-preset/prettier';
-
-export default {
-	...baseConfig,
-	...vueConfig,
-	...ymlConfig,
-	...pugConfig,
-};
-```
+`all` bundles the base options with the Vue, pug and YAML overrides.
+Individual pieces: `baseConfig`, `vueConfig`, `pugConfig`, `ymlConfig`.
 
 ---
 
 ## Stylelint
 
-### LESS
-
-```sh
-pnpm add -D stylelint stylelint-order stylelint-less stylelint-config-standard stylelint-config-standard-less stylelint-config-recommended-vue
-```
+Extend by name, not by imported object — Stylelint resolves a config's own
+dependencies relative to the file that lists them:
 
 ```js
 // stylelint.config.mjs
-import { less } from '@flarian/frontend-preset/stylelint';
-
-export default { extends: [less] };
+export default {
+	extends: ['@flarian/frontend-preset/stylelint/less'],
+};
 ```
 
-### SCSS
-
-```sh
-pnpm add -D stylelint stylelint-order stylelint-scss stylelint-config-standard stylelint-config-standard-scss stylelint-config-recommended-vue
-```
-
-```js
-// stylelint.config.mjs
-import { scss } from '@flarian/frontend-preset/stylelint';
-
-export default { extends: [scss] };
-```
+Available: `css`, `pcss`, `less`, `scss`. Each one includes
+`stylelint-config-standard`, the Vue overrides and the property-order rules.
 
 ---
 
@@ -303,6 +158,14 @@ export default { extends: [scss] };
 		"editor.defaultFormatter": "stylelint.vscode-stylelint",
 		"editor.formatOnSave": true
 	},
+	"[postcss]": {
+		"editor.defaultFormatter": "stylelint.vscode-stylelint",
+		"editor.formatOnSave": true
+	},
+	"[scss]": {
+		"editor.defaultFormatter": "stylelint.vscode-stylelint",
+		"editor.formatOnSave": true
+	},
 	"[typescript]": {
 		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
 		"editor.formatOnSave": true
@@ -322,7 +185,8 @@ export default { extends: [scss] };
 	"eslint.format.enable": true,
 	"eslint.validate": ["json", "jsonc", "javascript", "typescript", "vue", "yaml", "yml"],
 	"stylelint.packageManager": "pnpm",
-	"stylelint.validate": ["css", "less", "postcss", "scss", "vue", "sass"]
+	"stylelint.validate": ["css", "less", "postcss", "scss", "vue", "sass"],
+	"stylelint.snippet": ["css", "less", "postcss", "scss", "vue", "sass"]
 }
 ```
 
@@ -346,7 +210,7 @@ trim_trailing_whitespace = false
 indent_style = tab
 indent_size = 4
 
-[*.{css,less}]
+[*.{css,pcss,less,scss}]
 indent_style = tab
 indent_size = 4
 

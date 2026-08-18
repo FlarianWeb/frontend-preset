@@ -1,17 +1,21 @@
-import type { Config } from '../types/config';
 import globals from 'globals';
-import jsPlugin from '@eslint/js';
+
+import { js } from '../plugins';
+import type { Config, CreateConfig } from '../types/config';
+import applyPluginPolicy from '../utils/applyPluginPolicy';
 
 import esLintJavaScriptRules from './rules/javascript';
 
-export const createJavascriptConfig = (): Config => [
+export const createJavascriptConfig: CreateConfig = (options = {}) => [
 	{
 		languageOptions: {
 			globals: { ...globals.browser, ...globals.node },
 		},
 	},
-	jsPlugin.configs.recommended,
-	esLintJavaScriptRules,
+	// Правила ядра, своего плагина здесь нет — политика применяется
+	// ради единообразия сигнатуры.
+	applyPluginPolicy(js.configs.recommended, options),
+	applyPluginPolicy(esLintJavaScriptRules, options),
 ];
 
 export const javascript: Config = createJavascriptConfig();

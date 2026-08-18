@@ -3,8 +3,10 @@
 
 import type { Options } from 'prettier';
 
+import resolveFrom from '../../utils/resolve';
+
 export const pugConfig: Options = {
-	plugins: ['@prettier/plugin-pug'],
+	plugins: [resolveFrom('@prettier/plugin-pug')],
 
 	pugFramework: 'vue',
 	pugSortAttributes: 'asc',
