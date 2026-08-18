@@ -1,3 +1,23 @@
+## [3.0.0](https://github.com/FlarianWeb/frontend-preset/compare/v2.0.5...v3.0.0) (2026-08-18)
+
+### ⚠ BREAKING CHANGES
+
+* плагины больше не peer-зависимости, а собственные
+зависимости пресета — лишние записи из devDependencies проекта нужно
+убрать. Экспорт imports заменён на perfectionist, опция registerPlugins —
+на externalPlugins. Конфиги Stylelint подключаются строкой
+('@flarian/frontend-preset/stylelint/less'), а не импортированным
+объектом. Из Stylistic осталось пять правил, форматирование целиком
+за Prettier.
+
+### Features
+
+* пресет тянет плагины сам и настраивается одним вызовом ([#94](https://github.com/FlarianWeb/frontend-preset/issues/94)) ([df9f88f](https://github.com/FlarianWeb/frontend-preset/commit/df9f88fa720bd1255b59b4a17f67c1f58fdc4df3))
+
+### Bug Fixes
+
+* **release:** вернуть токен npm как запасной путь публикации ([#95](https://github.com/FlarianWeb/frontend-preset/issues/95)) ([4ed946d](https://github.com/FlarianWeb/frontend-preset/commit/4ed946dadb1069b41ae21a50d9d23908cca6f65f))
+
 ## [2.0.5](https://github.com/FlarianWeb/frontend-preset/compare/v2.0.4...v2.0.5) (2026-04-24)
 
 ### Bug Fixes
